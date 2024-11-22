@@ -1,0 +1,565 @@
+:root {
+    --neon-orange: #ff6b1a;
+    --dark-bg: #0a0a0a;
+    --font-display: 'Orbitron', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+    --cursor-size: 20px;
+    --cursor-dot-size: 4px;
+}
+
+* {
+    -webkit-user-select: none;  /* Safari */
+    -ms-user-select: none;      /* IE 10 and IE 11 */
+    user-select: none;          /* Standard syntax */
+    -webkit-user-drag: none;    /* Prevent image dragging */
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    cursor: none !important;
+}
+
+/* Exception for form inputs and textarea - users should be able to select text here */
+input,
+textarea {
+    -webkit-user-select: text;  /* Safari */
+    -ms-user-select: text;      /* IE 10 and IE 11 */
+    user-select: text;          /* Standard syntax */
+}
+
+/* Prevent image highlighting */
+img {
+    pointer-events: none;
+}
+
+/* Optional: Add cursor style to indicate non-selectable text */
+body {
+    cursor: default;
+}
+
+/* Keep pointer cursor for clickable elements */
+a, 
+button,
+.program-card,
+.submit-btn,
+.scroll-to-top {
+    cursor: pointer;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-bg);
+    color: white;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+}
+
+/* Navigation Styles */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0px;
+    padding: 10px;
+    padding-right: 90px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    color: var(--neon-orange);
+    text-shadow: 0 0 8px var(--neon-orange);
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    margin-left: 20px;
+    border-radius: 50%;
+
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.neon-text {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 4rem;
+    letter-spacing: 4px;
+    color: var(--neon-orange);
+    text-shadow: 0 0 10px var(--neon-orange),
+                 0 0 20px var(--neon-orange),
+                 0 0 30px var(--neon-orange);
+    animation: flicker 1.5s infinite alternate;
+}
+
+.tagline {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    font-weight: 300;
+    margin-top: 20px;
+    color: #fff;
+}
+
+/* Programs Section */
+.programs {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px;
+}
+
+.program-card {
+    background: rgba(255,107,26,0.1);
+    border: 1px solid var(--neon-orange);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px var(--neon-orange);
+}
+
+.program-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+/* About Section */
+.about {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    color: var(--neon-orange);
+    display: block;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+/* Contact Section */
+.contact {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    gap: 50px;
+}
+
+.contact-form {
+    flex: 1;
+    max-width: 600px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--neon-orange);
+    color: white;
+    font-size: 1.1rem;
+    outline: none;
+    font-family: var(--font-body);
+}
+
+.form-group label {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label,
+.form-group textarea:focus + label,
+.form-group textarea:valid + label {
+    top: -20px;
+    font-size: 0.8rem;
+    color: var(--neon-orange);
+}
+
+.submit-btn {
+    background: var(--neon-orange);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.submit-btn:hover {
+    box-shadow: 0 0 20px var(--neon-orange);
+}
+
+.contact-info {
+    flex: 1;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+}
+
+.info-item {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Animation */
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 0 0 10px var(--neon-orange),
+                    0 0 20px var(--neon-orange),
+                    0 0 30px var(--neon-orange);
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .neon-text {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+    }
+    
+    nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .logo img {
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+    
+    .tagline {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+    border-left: 1px solid rgba(255, 107, 26, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neon-orange);
+    border-radius: 6px;
+    box-shadow: 0 0 10px var(--neon-orange);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff8142;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(255, 107, 26, 0.2);
+    border: 2px solid var(--neon-orange);
+    color: var(--neon-orange);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    background: var(--neon-orange);
+    color: white;
+    box-shadow: 0 0 15px var(--neon-orange);
+    transform: translateY(-3px);
+}
+
+/* Logo Link Styles */
+.logo a {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+    transform: scale(1.05);
+}
+
+/* Firefox Scrollbar (optional) */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--neon-orange) var(--dark-bg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Custom Context Menu */
+.custom-context-menu {
+    position: fixed;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--neon-orange);
+    box-shadow: 0 0 20px rgba(255, 107, 26, 0.2);
+    border-radius: 8px;
+    width: 200px;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 1000;
+}
+
+.custom-context-menu.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.custom-context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-context-menu li {
+    padding: 12px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+}
+
+.custom-context-menu li:hover {
+    background: rgba(255, 107, 26, 0.2);
+    color: var(--neon-orange);
+    text-shadow: 0 0 8px var(--neon-orange);
+}
+
+.custom-context-menu .menu-icon {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.custom-context-menu .divider {
+    height: 1px;
+    background: rgba(255, 107, 26, 0.3);
+    margin: 5px 0;
+    padding: 0;
+    pointer-events: none;
+}
+
+/* Animation for menu items */
+.custom-context-menu li {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.custom-context-menu.visible li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Staggered animation for menu items */
+.custom-context-menu.visible li:nth-child(1) { transition-delay: 0.1s; }
+.custom-context-menu.visible li:nth-child(2) { transition-delay: 0.15s; }
+.custom-context-menu.visible li:nth-child(3) { transition-delay: 0.2s; }
+.custom-context-menu.visible li:nth-child(4) { transition-delay: 0.25s; }
+.custom-context-menu.visible li:nth-child(6) { transition-delay: 0.3s; }
+
+/* Custom Cursor Styles */
+/* Hide default cursor */
+* {
+    cursor: none !important;
+}
+
+/* Main cursor dot */
+.cursor-dot {
+    width: var(--cursor-dot-size);
+    height: var(--cursor-dot-size);
+    background-color: var(--neon-orange);
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 999999;
+    transition: width 0.2s, height 0.2s;
+    box-shadow: 0 0 10px var(--neon-orange),
+                0 0 20px var(--neon-orange);
+}
+
+/* Cursor outline/ring */
+.cursor-outline {
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    border: 2px solid var(--neon-orange);
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 999998;
+    transition: transform 0.1s;
+    box-shadow: 0 0 15px rgba(255, 107, 26, 0.3);
+}
+
+/* Hover effects for interactive elements */
+a:hover ~ .cursor-dot,
+button:hover ~ .cursor-dot,
+.program-card:hover ~ .cursor-dot,
+.submit-btn:hover ~ .cursor-dot,
+input:hover ~ .cursor-dot,
+textarea:hover ~ .cursor-dot {
+    width: calc(var(--cursor-dot-size) * 2);
+    height: calc(var(--cursor-dot-size) * 2);
+    background-color: var(--neon-orange);
+    mix-blend-mode: difference;
+}
+
+a:hover ~ .cursor-outline,
+button:hover ~ .cursor-outline,
+.program-card:hover ~ .cursor-outline,
+.submit-btn:hover ~ .cursor-outline,
+input:hover ~ .cursor-outline,
+textarea:hover ~ .cursor-outline {
+    transform: scale(1.5);
+    background-color: rgba(255, 107, 26, 0.1);
+    border-color: transparent;
+}
+
+/* Click animation */
+.cursor-dot.clicking {
+    transform: scale(0.5);
+}
+
+.cursor-outline.clicking {
+    transform: scale(0.8);
+} 

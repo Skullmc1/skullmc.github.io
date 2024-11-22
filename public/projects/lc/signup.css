@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+/* Allow selection only for input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #000000, #1a0000);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.signup-box {
+    background: rgba(17, 17, 17, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 40px;
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.1);
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    color: #ff0000;
+    transform: translateX(-3px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    margin-right: 15px;
+}
+
+.company-name {
+    color: #ff0000;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.form-container {
+    text-align: center;
+}
+
+h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-icon i:not(.toggle-password):not(.toggle-confirm-password) {
+    position: absolute;
+    left: 15px;
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-icon input {
+    width: 100%;
+    padding: 15px 45px;
+    padding-right: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 0, 0, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-icon input:focus {
+    outline: none;
+    border-color: rgba(255, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.input-icon input:focus + i {
+    color: #ff0000;
+}
+
+.toggle-password,
+.toggle-confirm-password {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+    padding: 5px;
+}
+
+.toggle-password:hover,
+.toggle-confirm-password:hover {
+    color: #ff0000;
+}
+
+.terms {
+    text-align: left;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.checkbox-container input {
+    width: 18px;
+    height: 18px;
+    accent-color: #ff0000;
+}
+
+.terms a {
+    color: #ff0000;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.terms a:hover {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.signup-button {
+    width: 100%;
+    padding: 15px;
+    background: #ff0000;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.signup-button:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+.signup-button i {
+    transition: transform 0.3s ease;
+}
+
+.signup-button:hover i {
+    transform: translateX(5px);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.divider span {
+    padding: 0 15px;
+    font-size: 0.9rem;
+}
+
+.social-signup {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.social-button:hover {
+    background: rgba(255, 0, 0, 0.1);
+    border-color: rgba(255, 0, 0, 0.5);
+    color: #ff0000;
+    transform: translateY(-2px);
+}
+
+.login-text {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.login-text a {
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.login-text a:hover {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .signup-box {
+        padding: 30px 20px;
+    }
+
+    .company-name {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .terms {
+        font-size: 0.9rem;
+    }
+}
+
+/* Loading State */
+.signup-button.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.signup-button.loading span {
+    visibility: hidden;
+}
+
+.signup-button.loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}

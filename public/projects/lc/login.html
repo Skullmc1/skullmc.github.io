@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lethal Cooperation - Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Lethal Cooperation Logo">
+                <h1 class="company-name">Lethal Cooperation</h1>
+            </div>
+            <div class="form-container">
+                <h2>Welcome Back</h2>
+                <p class="subtitle">Enter your credentials to continue</p>
+                <form action="#" method="POST">
+                    <div class="input-group">
+                        <div class="input-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="Password" required>
+                            <i class="fas fa-eye-slash toggle-password"></i>
+                        </div>
+                    </div>
+                    <div class="remember-forgot">
+                        <label class="remember-me">
+                            <input type="checkbox" name="remember">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="forgot-password.html" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="login-button">
+                        <span>Log In</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+                <div class="social-login">
+                    <button class="social-button google">
+                        <i class="fab fa-google"></i>
+                    </button>
+                    <button class="social-button github">
+                        <i class="fab fa-github"></i>
+                    </button>
+                    <button class="social-button discord">
+                        <i class="fab fa-discord"></i>
+                    </button>
+                </div>
+                <p class="signup-text">Don't have an account? <a href="signup.html">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+document.querySelector('.toggle-password').addEventListener('click', function(e) {
+    const password = document.querySelector('#password');
+    // Toggle type between 'password' and 'text'
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    
+    // Toggle icon
+    this.classList.toggle('fa-eye');
+    this.classList.toggle('fa-eye-slash');
+    
+    // Prevent the click from moving focus
+    e.preventDefault();
+    
+    // Keep focus on password input
+    password.focus();
+});
+    </script>
+</body>
+</html>

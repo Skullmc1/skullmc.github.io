@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lethal Cooperation - Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-box">
+            <a href="login.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Lethal Cooperation Logo">
+                <h1 class="company-name">Lethal Cooperation</h1>
+            </div>
+            <div class="form-container">
+                <h2>Create Account</h2>
+                <p class="subtitle">Join us and start your journey</p>
+                <form action="#" method="POST">
+                    <div class="input-group">
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="username" name="username" placeholder="Username" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="Password" required>
+                            <i class="fas fa-eye-slash toggle-password"></i>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+                            <i class="fas fa-eye-slash toggle-confirm-password"></i>
+                        </div>
+                    </div>
+                    <div class="terms">
+                        <label class="checkbox-container">
+                            <input type="checkbox" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="signup-button">
+                        <span>Create Account</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+                <div class="divider">
+                    <span>or sign up with</span>
+                </div>
+                <div class="social-signup">
+                    <button class="social-button google">
+                        <i class="fab fa-google"></i>
+                    </button>
+                    <button class="social-button github">
+                        <i class="fab fa-github"></i>
+                    </button>
+                    <button class="social-button discord">
+                        <i class="fab fa-discord"></i>
+                    </button>
+                </div>
+                <p class="login-text">Already have an account? <a href="login.html">Log in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle password visibility for both password fields
+        document.querySelectorAll('.toggle-password, .toggle-confirm-password').forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                const passwordField = this.classList.contains('toggle-password') 
+                    ? document.querySelector('#password')
+                    : document.querySelector('#confirm-password');
+                
+                const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordField.setAttribute('type', type);
+                
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+                
+                e.preventDefault();
+                passwordField.focus();
+            });
+        });
+    </script>
+</body>
+</html>

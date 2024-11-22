@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Chicos Tech Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#home">
+                <img src="images/logo.jpg" alt="Los Chicos Logo">
+            </a>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1 class="neon-text">LOS CHICOS</h1>
+        <p class="tagline">Where Future Tech Leaders Are Made</p>
+    </section>
+
+    <section class="programs" id="programs">
+        <h2 class="neon-text">Our Programs</h2>
+        <div class="program-grid">
+            <div class="program-card">
+                <h3>AI Development</h3>
+                <p>Learn to create and implement artificial intelligence solutions using cutting-edge technologies.</p>
+            </div>
+            <div class="program-card">
+                <h3>Software Engineering</h3>
+                <p>Master the art of building robust and scalable software applications.</p>
+            </div>
+            <div class="program-card">
+                <h3>Machine Learning</h3>
+                <p>Dive deep into algorithms and data analysis that power modern AI systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="neon-text">About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Los Chicos Tech Academy is a pioneering institution dedicated to shaping the future of technology education. Founded in 2024, we specialize in preparing students for the rapidly evolving world of software engineering and artificial intelligence.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Employment Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Industry Partners</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Lab Access</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="neon-text">Contact Us</h2>
+        <div class="contact-container">
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" required>
+                    <label for="name">Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" required></textarea>
+                    <label for="message">Message</label>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="location-icon"></i>
+                    <p>123 Tech Avenue, Silicon Valley, CA 94025</p>
+                </div>
+                <div class="info-item">
+                    <i class="phone-icon"></i>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+                <div class="info-item">
+                    <i class="email-icon"></i>
+                    <p>admissions@loschicos.edu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button id="scrollToTop" class="scroll-to-top">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </button>
+
+    <div class="custom-context-menu" id="contextMenu">
+        <ul>
+            <li data-action="home">
+                <i class="menu-icon">🏠</i>
+                Home
+            </li>
+            <li data-action="programs">
+                <i class="menu-icon">💻</i>
+                Programs
+            </li>
+            <li data-action="about">
+                <i class="menu-icon">ℹ️</i>
+                About
+            </li>
+            <li data-action="contact">
+                <i class="menu-icon">📧</i>
+                Contact
+            </li>
+            <li class="divider"></li>
+            <li data-action="top">
+                <i class="menu-icon">⬆️</i>
+                Scroll to Top
+            </li>
+        </ul>
+    </div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
