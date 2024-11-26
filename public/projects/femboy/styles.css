@@ -203,3 +203,78 @@ header, .gallery {
     opacity: 0.3;
     transition: all 0.1s ease;
 }
+
+.crime-scene-tape {
+    position: fixed;
+    width: 200%;
+    height: 60px;
+    background: repeating-linear-gradient(
+        45deg,
+        #f4d03f 0,
+        #f4d03f 20px,
+        #000000 20px,
+        #000000 40px
+    );
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 60px;
+    z-index: 9999;
+    white-space: nowrap;
+    left: -50%;
+}
+
+.crime-scene-tape::before {
+    content: "CRIME SCENE DO NOT CROSS - CRIME SCENE DO NOT CROSS - CRIME SCENE DO NOT CROSS - CRIME SCENE DO NOT CROSS - CRIME SCENE DO NOT CROSS - CRIME SCENE DO NOT CROSS - ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: slide 15s linear infinite;
+    color: #000;
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+    display: block;
+    width: 200%;
+    left: 0;
+}
+
+.crime-scene-tape-top {
+    top: 10%;
+    transform: rotate(3deg);
+}
+
+.crime-scene-tape-upper {
+    top: 25%;
+    transform: rotate(-2deg);
+}
+
+.crime-scene-tape-middle-1 {
+    top: 40%;
+    transform: rotate(2deg);
+}
+
+.crime-scene-tape-middle-2 {
+    top: 55%;
+    transform: rotate(-2.5deg);
+}
+
+.crime-scene-tape-lower {
+    top: 70%;
+    transform: rotate(1.5deg);
+}
+
+.crime-scene-tape-bottom {
+    top: 85%;
+    transform: rotate(-3deg);
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Kingdom | Empowering the future through solar power</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-solar-panel"></i>
+                <span>Solar Kingdom</span>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact" class="cta-button">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="animate-fade">Powering Tomorrow's World Today</h1>
+                <p class="animate-slide">Transform your energy consumption with sustainable solar solutions. Join the renewable revolution.</p>
+                <div class="hero-buttons">
+                    <a href="consult.html" class="primary-button">Free Consultation</a>
+                    <a href="#solutions" class="secondary-button">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image animate-fade">
+                <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200" alt="Solar Panels">
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="solutions">
+        <div class="section-header">
+            <h2>Our Solar Solutions</h2>
+            <p>Customized solar installations for every need</p>
+        </div>
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <div class="card-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Residential</h3>
+                <p>Power your home with clean, renewable energy and reduce your electricity bills.</p>
+                <ul class="features-list">
+                    <li>Custom Design</li>
+                    <li>Battery Storage</li>
+                    <li>Smart Monitoring</li>
+                </ul>
+                <a href="#" class="learn-more">Explore Options →</a>
+            </div>
+            <div class="solution-card">
+                <div class="card-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Commercial</h3>
+                <p>Sustainable energy solutions for businesses of all sizes.</p>
+                <ul class="features-list">
+                    <li>ROI Analysis</li>
+                    <li>Tax Incentives</li>
+                    <li>24/7 Support</li>
+                </ul>
+                <a href="#" class="learn-more">Learn More →</a>
+            </div>
+            <div class="solution-card">
+                <div class="card-icon">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <h3>Industrial</h3>
+                <p>Large-scale solar installations for industrial applications.</p>
+                <ul class="features-list">
+                    <li>High Capacity</li>
+                    <li>Custom Solutions</li>
+                    <li>Expert Installation</li>
+                </ul>
+                <a href="#" class="learn-more">Get Details →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <div class="benefits-container">
+            <div class="benefits-content">
+                <h2>Why Choose Solar?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Eco-Friendly</h3>
+                        <p>Reduce your carbon footprint</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-piggy-bank"></i>
+                        <h3>Save Money</h3>
+                        <p>Lower energy bills</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Increase Value</h3>
+                        <p>Boost property worth</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Energy Security</h3>
+                        <p>Be energy independent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="section-header">
+            <h2>Recent Projects</h2>
+            <p>See our work in action</p>
+        </div>
+        <div class="slideshow-container">
+            <div class="slides">
+                <div class="slide">
+                    <img src="images/solar1.jpg" alt="Commercial Solar Installation">
+                    <div class="slide-info">
+                        <h3>Commercial Complex</h3>
+                        <p>500kW Installation</p>
+                        <span class="location">Los Angeles, CA</span>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/solar2.jpg" alt="Residential Solar Installation">
+                    <div class="slide-info">
+                        <h3>Luxury Residence</h3>
+                        <p>15kW Installation</p>
+                        <span class="location">San Diego, CA</span>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/solar3.jpg" alt="Industrial Solar Installation">
+                    <div class="slide-info">
+                        <h3>Manufacturing Facility</h3>
+                        <p>750kW Installation</p>
+                        <span class="location">Phoenix, AZ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="slide-btn prev" onclick="changeSlide(-1)">❮</button>
+            <button class="slide-btn next" onclick="changeSlide(1)">❯</button>
+            
+            <div class="slide-dots">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Ready to Go Solar?</h2>
+                <p>Get your free consultation today</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@solarkingdom.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Solar Street, Sunshine City</span>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone">
+                <select required aria-label="Service Type">
+                    <option value="">Select Service Type</option>
+                    <option value="residential">Residential</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="industrial">Industrial</option>
+                </select>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit" class="primary-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-section company-info">
+                    <div class="footer-logo">
+                        <i class="fas fa-solar-panel"></i>
+                        <span>Solar Kingdom</span>
+                    </div>
+                    <p>Empowering the future through solar power. Leading the renewable energy revolution since 2010.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#solutions">Solar Solutions</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#residential">Residential Solar</a></li>
+                        <li><a href="#commercial">Commercial Solar</a></li>
+                        <li><a href="#industrial">Industrial Solutions</a></li>
+                        <li><a href="#maintenance">Maintenance</a></li>
+                        <li><a href="#consulting">Energy Consulting</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section contact-info">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Solar Street<br>Sunshine City, SC 12345</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>
+                                Sales: (555) 123-4567<br>
+                                Support: (555) 987-6543
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@solarkingdom.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 8:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Solar Kingdom. All rights reserved.</p>
+                    <ul class="legal-links">
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/sitemap">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

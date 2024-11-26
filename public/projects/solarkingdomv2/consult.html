@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Solar Consultation | Solar Kingdom</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-solar-panel"></i>
+                <span>Solar Kingdom</span>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact" class="cta-button">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="consultation-page">
+        <div class="consultation-container">
+            <div class="consultation-header">
+                <h1>Free Solar Consultation</h1>
+                <p>Fill out this form to schedule your free consultation with our solar experts</p>
+            </div>
+
+            <div class="consultation-content">
+                <form class="consultation-form" id="consultationForm">
+                    <div class="form-group">
+                        <h3>Personal Information</h3>
+                        <div class="form-row">
+                            <input type="text" placeholder="First Name" required>
+                            <input type="text" placeholder="Last Name" required>
+                        </div>
+                        <input type="email" placeholder="Email Address" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <h3>Property Details</h3>
+                        <input type="text" placeholder="Street Address" required>
+                        <div class="form-row">
+                            <input type="text" placeholder="City" required>
+                            <input type="text" placeholder="State" required>
+                            <input type="text" placeholder="ZIP Code" required>
+                        </div>
+                        <select required name="propertyType" aria-label="Property Type">
+                            <option value="">Property Type</option>
+                            <option value="single-family">Single Family Home</option>
+                            <option value="multi-family">Multi-Family Home</option>
+                            <option value="commercial">Commercial Building</option>
+                            <option value="industrial">Industrial Property</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <h3>Current Energy Usage</h3>
+                        <div class="form-row">
+                            <input type="number" placeholder="Average Monthly Bill ($)" required>
+                            <select required aria-label="Electric Company">
+                                <option value="">Electric Company</option>
+                                <option value="pge">PG&E</option>
+                                <option value="sce">SCE</option>
+                                <option value="sdge">SDG&E</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h3>Preferred Contact Time</h3>
+                        <div class="form-row">
+                            <select required aria-label="Best Day to Call">
+                                <option value="">Best Day to Call</option>
+                                <option value="weekday">Weekdays</option>
+                            </select>
+                            <select required aria-label="Best Time to Call">
+                                <option value="">Best Time to Call</option>
+                                <option value="morning">Morning (9AM-12PM)</option>
+                                <option value="afternoon">Afternoon (12PM-4PM)</option>
+                                <option value="evening">Evening (4PM-7PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h3>Additional Information</h3>
+                        <textarea placeholder="Any specific questions or concerns?" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-footer">
+                        <p class="privacy-note">By submitting this form, you agree to our <a href="/privacy">Privacy Policy</a> and consent to being contacted about solar services.</p>
+                        <button type="submit" class="primary-button">Schedule Consultation</button>
+                    </div>
+                </form>
+
+                <div class="consultation-info">
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>What to Expect</h3>
+                        <ul>
+                            <li>Free 30-minute consultation</li>
+                            <li>Custom solar analysis</li>
+                            <li>Cost and savings breakdown</li>
+                            <li>Available incentives review</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-section company-info">
+                    <div class="footer-logo">
+                        <i class="fas fa-solar-panel"></i>
+                        <span>Solar Kingdom</span>
+                    </div>
+                    <p>Empowering the future through solar power. Leading the renewable energy revolution since 2010.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#solutions">Solar Solutions</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#residential">Residential Solar</a></li>
+                        <li><a href="#commercial">Commercial Solar</a></li>
+                        <li><a href="#industrial">Industrial Solutions</a></li>
+                        <li><a href="#maintenance">Maintenance</a></li>
+                        <li><a href="#consulting">Energy Consulting</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section contact-info">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Solar Street<br>Sunshine City, SC 12345</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>
+                                Sales: (555) 123-4567<br>
+                                Support: (555) 987-6543
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@solarkingdom.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 8:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Solar Kingdom. All rights reserved.</p>
+                    <ul class="legal-links">
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/sitemap">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

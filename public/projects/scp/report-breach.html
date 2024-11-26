@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCP Foundation - Containment Breach Report</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --accent-red: #c41e3a;
+            --warning-yellow: #ffd700;
+            --dark-gray: #1a1a1a;
+            --scan-line-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                transparent 50%,
+                var(--scan-line-color) 50%
+            );
+            background-size: 100% 4px;
+            z-index: 1000;
+            pointer-events: none;
+            animation: scanlines 8s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes scanlines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--accent-red);
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            color: var(--accent-red);
+            margin: 0;
+        }
+
+        .warning-banner {
+            background: var(--accent-red);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        .report-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1a1a1a, #242424);
+            padding: 30px;
+            border: 1px solid var(--accent-red);
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--warning-yellow);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            background: #2a2a2a;
+            border: 1px solid var(--accent-red);
+            color: #fff;
+            font-family: 'Courier New', monospace;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--accent-red);
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #a01830;
+            box-shadow: 0 0 15px rgba(196, 30, 58, 0.5);
+        }
+
+        .clearance-required {
+            text-align: center;
+            color: var(--warning-yellow);
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--warning-yellow);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-red);
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        .location-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .classified {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 100px;
+            color: var(--accent-red);
+            opacity: 0.1;
+            pointer-events: none;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--warning-yellow);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .scp-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: var(--accent-red);
+            -webkit-mask: url('scp-logo.svg') no-repeat center;
+            mask: url('scp-logo.svg') no-repeat center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="scp-logo"></div>
+        <h1>SCP FOUNDATION</h1>
+        <h2>CONTAINMENT BREACH REPORT</h2>
+    </div>
+
+    <div class="warning-banner">
+        ⚠ LEVEL 3 CLEARANCE REQUIRED FOR BREACH REPORTING ⚠
+    </div>
+
+    <div class="report-form">
+        <div class="classified">CLASSIFIED</div>
+        <form id="breachReport">
+            <div class="form-group">
+                <label for="clearanceLevel">Security Clearance Level:</label>
+                <select id="clearanceLevel" name="clearanceLevel" required>
+                    <option value="">Select Clearance Level</option>
+                    <option value="1">Level 1</option>
+                    <option value="2">Level 2</option>
+                    <option value="3">Level 3</option>
+                    <option value="4">Level 4</option>
+                    <option value="5">Level 5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Personnel ID:</label>
+                <input type="text" required placeholder="Format: XXX-XXXX">
+            </div>
+
+            <div class="form-group">
+                <label>SCP Designation:</label>
+                <input type="text" required placeholder="Format: SCP-XXXX">
+            </div>
+
+            <div class="form-group">
+                <label for="severityLevel">Breach Severity:</label>
+                <select id="severityLevel" name="severityLevel" required>
+                    <option value="">Select Severity Level</option>
+                    <option value="1">Level 1 - Minor</option>
+                    <option value="2">Level 2 - Moderate</option>
+                    <option value="3">Level 3 - Serious</option>
+                    <option value="4">Level 4 - Critical</option>
+                    <option value="5">Level 5 - Catastrophic</option>
+                </select>
+            </div>
+
+            <div class="location-group">
+                <div class="form-group">
+                    <label for="siteLocation">Site Location:</label>
+                    <select id="siteLocation" name="siteLocation" required>
+                        <option value="">Select Site</option>
+                        <option value="site19">Site-19</option>
+                        <option value="site17">Site-17</option>
+                        <option value="site06">Site-06</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Containment Zone:</label>
+                    <input type="text" required placeholder="Zone Designation">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Breach Description:</label>
+                <textarea required placeholder="Provide detailed description of the containment breach..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="breachStatus">Current Status:</label>
+                <select id="breachStatus" name="breachStatus" required>
+                    <option value="">Select Status</option>
+                    <option value="ongoing">Breach Ongoing</option>
+                    <option value="contained">Partially Contained</option>
+                    <option value="secured">Secured</option>
+                    <option value="unknown">Status Unknown</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <span class="submit-text">SUBMIT REPORT</span>
+                <span class="loading-spinner" style="display: none;">⌛</span>
+            </button>
+        </form>
+
+        <p class="clearance-required">
+            Note: All breach reports are logged and monitored by O5 Council
+        </p>
+    </div>
+
+    <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Return to Main Database
+    </a>
+
+    <script>
+        const form = document.getElementById('breachReport');
+        
+        // Validation patterns
+        const patterns = {
+            personnelId: /^[A-Z0-9]{3}-[A-Z0-9]{4}$/,
+            scpDesignation: /^SCP-[0-9]{3,4}$/
+        };
+
+        // Add input validation
+        form.addEventListener('input', (e) => {
+            const input = e.target;
+            
+            if (input.name === 'personnelId') {
+                if (!patterns.personnelId.test(input.value.toUpperCase())) {
+                    input.setCustomValidity('Personnel ID must be in format: XXX-XXXX');
+                } else {
+                    input.setCustomValidity('');
+                }
+            }
+            
+            if (input.name === 'scpDesignation') {
+                if (!patterns.scpDesignation.test(input.value.toUpperCase())) {
+                    input.setCustomValidity('SCP must be in format: SCP-XXXX');
+                } else {
+                    input.setCustomValidity('');
+                }
+            }
+        });
+
+        // Auto-format inputs to uppercase
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            input.addEventListener('input', (e) => {
+                e.target.value = e.target.value.toUpperCase();
+            });
+        });
+
+        // Form submission handler
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-btn');
+            const submitText = submitBtn.querySelector('.submit-text');
+            const loadingSpinner = submitBtn.querySelector('.loading-spinner');
+            
+            submitText.style.display = 'none';
+            loadingSpinner.style.display = 'inline';
+            
+            // Simulate submission delay
+            setTimeout(() => {
+                showFoundationAlert('REPORT SUBMITTED - MOBILE TASK FORCE EN ROUTE', 'warning');
+                submitText.style.display = 'inline';
+                loadingSpinner.style.display = 'none';
+                form.reset();
+            }, 1500);
+        });
+
+        // Copy the showFoundationAlert function from earlier here
+        function showFoundationAlert(message, type = 'warning') {
+            // ... (paste the entire showFoundationAlert function here) ...
+        }
+
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</body>
+</html>
