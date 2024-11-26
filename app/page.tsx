@@ -11,6 +11,12 @@ export default function Home() {
       tech: ["HTML", "CSS", "JavaScript"]
     },
     {
+      title: "Solar Kingdom v2",
+      description: "Redesigned and enhanced version of the solar energy company website",
+      link: "/projects/solarkingdomv2/index.html",
+      tech: ["HTML", "CSS", "JavaScript"]
+    },
+    {
       title: "Supermarket",
       description: "Eco-friendly supermarket platform promoting sustainable shopping",
       link: "/projects/supermarket/index.html",
@@ -44,6 +50,12 @@ export default function Home() {
       title: "Joke Generator",
       description: "Random joke generator with various categories",
       link: "/projects/joke/index.html",
+      tech: ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      title: "SCP Library",
+      description: "Digital archive of SCP Foundation articles and entries",
+      link: "/projects/scp/index.html",
       tech: ["HTML", "CSS", "JavaScript"]
     }
   ];
