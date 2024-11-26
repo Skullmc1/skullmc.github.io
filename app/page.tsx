@@ -29,12 +29,6 @@ export default function Home() {
       tech: ["HTML", "CSS", "JavaScript"]
     },
     {
-      title: "Femboy Gallery",
-      description: "Curated gallery showcasing popular femboys",
-      link: "/projects/femboy",
-      tech: ["HTML", "CSS", "JavaScript"]
-    },
-    {
       title: "AI Chatbot",
       description: "Interactive AI chatbot with natural language processing",
       link: "/projects/ai",
@@ -95,18 +89,9 @@ export default function Home() {
               key={index}
               href={project.title === "AI Chatbot" ? "#chat" : project.link}
               className={`p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow relative ${
-                project.title === "Femboy Gallery" || project.title === "AI Chatbot" ? "overflow-hidden" : ""
+                project.title === "AI Chatbot" ? "overflow-hidden" : ""
               }`}
             >
-              {project.title === "Femboy Gallery" && (
-                <div className="absolute inset-0 bg-black/70 flex items-center justify-center z-10">
-                  <div className="transform rotate-12">
-                    <div className="px-4 py-2 bg-yellow-500 text-black font-bold text-lg">
-                      UNDER MAINTENANCE
-                    </div>
-                  </div>
-                </div>
-              )}
               {project.title === "AI Chatbot" && (
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center z-10 backdrop-blur-[2px]">
                   <div className="transform rotate-12">
