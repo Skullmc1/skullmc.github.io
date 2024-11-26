@@ -3,17 +3,32 @@ import Link from 'next/link';
 import ClientChatWrapper from './components/ClientChatWrapper';
 
 export default function Home() {
-  const projects = [
+  const newProjects = [
     {
-      title: "Solar Kingdom",
-      description: "Modern website for a sustainable solar energy company",
-      link: "/projects/solarkingdom/index.html",
+      title: "Nerton",
+      description: "A living town's website. Nerton is always watching you.",
+      link: "/projects/nerton/index.html",
+      tech: ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      title: "SCP Library",
+      description: "Digital archive of SCP Foundation articles and entries",
+      link: "/projects/scp/index.html",
       tech: ["HTML", "CSS", "JavaScript"]
     },
     {
       title: "Solar Kingdom v2",
       description: "Redesigned and enhanced version of the solar energy company website",
       link: "/projects/solarkingdomv2/index.html",
+      tech: ["HTML", "CSS", "JavaScript"]
+    }
+  ];
+
+  const projects = [
+    {
+      title: "Solar Kingdom",
+      description: "Modern website for a sustainable solar energy company",
+      link: "/projects/solarkingdom/index.html",
       tech: ["HTML", "CSS", "JavaScript"]
     },
     {
@@ -44,12 +59,6 @@ export default function Home() {
       title: "Joke Generator",
       description: "Random joke generator with various categories",
       link: "/projects/joke/index.html",
-      tech: ["HTML", "CSS", "JavaScript"]
-    },
-    {
-      title: "SCP Library",
-      description: "Digital archive of SCP Foundation articles and entries",
-      link: "/projects/scp/index.html",
       tech: ["HTML", "CSS", "JavaScript"]
     }
   ];
@@ -82,6 +91,40 @@ export default function Home() {
           </p>
         </div>
 
+        {/* New Projects Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6 text-center">New Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {newProjects.map((project, index) => (
+              <Link
+                key={index}
+                href={project.link}
+                className="p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow relative"
+              >
+                <h2 className="text-xl font-semibold mb-2">
+                  {project.title}
+                  <span className="ml-2 inline-block px-2 py-1 text-xs bg-blue-500 text-white rounded-full">New</span>
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Existing Projects Section */}
+        <h2 className="text-2xl font-bold mb-6 text-center">All Projects</h2>
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
