@@ -5,6 +5,12 @@ import ClientChatWrapper from './components/ClientChatWrapper';
 export default function Home() {
   const newProjects = [
     {
+      title: "Backrooms Experience",
+      description: "A website that simulates the backrooms experience",
+      link: "/projects/backrooms/index.html",
+      tech: ["HTML", "CSS", "JavaScript"]
+    },
+    {
       title: "SCP Library",
       description: "Always Updating SCP Archive",
       link: "/projects/scp/index.html",
