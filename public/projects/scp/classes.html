@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCP Foundation - Object Classes</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <audio id="background-audio" loop>
+        <source src="audio/scp.wav" type="audio/wav">
+    </audio>
+
+    <div class="header">
+        <img src="logo.png" alt="SCP Foundation Logo" class="site-logo">
+        <h1>SCP FOUNDATION</h1>
+        <h2>OBJECT CLASSIFICATION SYSTEM</h2>
+    </div>
+
+    <div class="warning-banner">
+        CLEARANCE LEVEL 2 REQUIRED FOR ACCESS
+    </div>
+
+    <div class="class-grid">
+        <!-- Keter Class -->
+        <div class="class-card keter">
+            <div class="class-header">
+                <i class="fas fa-radiation"></i>
+                <h2>KETER CLASS</h2>
+            </div>
+            <div class="class-content">
+                <p>Keter-class SCPs are anomalies that are exceedingly difficult to contain consistently or reliably, with containment procedures often being extensive and complex.</p>
+                <ul>
+                    <li>Highly dangerous or unpredictable</li>
+                    <li>Resource-intensive containment</li>
+                    <li>High breach potential</li>
+                </ul>
+                <a href="classes/keter.html" class="class-button">
+                    <span>View Keter SCPs</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Euclid Class -->
+        <div class="class-card euclid">
+            <div class="class-header">
+                <i class="fas fa-shield-alt"></i>
+                <h2>EUCLID CLASS</h2>
+            </div>
+            <div class="class-content">
+                <p>Euclid-class SCPs are anomalies that require more resources to contain completely or where containment isn't always reliable.</p>
+                <ul>
+                    <li>Unpredictable behavior</li>
+                    <li>Moderate containment difficulty</li>
+                    <li>Partial understanding</li>
+                </ul>
+                <a href="classes/euclid.html" class="class-button">
+                    <span>View Euclid SCPs</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Safe Class -->
+        <div class="class-card safe">
+            <div class="class-header">
+                <i class="fas fa-check-circle"></i>
+                <h2>SAFE CLASS</h2>
+            </div>
+            <div class="class-content">
+                <p>Safe-class SCPs are anomalies that are easily and reliably contained. This does not mean they are not dangerous, only that they are easy to contain.</p>
+                <ul>
+                    <li>Reliable containment</li>
+                    <li>Well understood</li>
+                    <li>Predictable behavior</li>
+                </ul>
+                <a href="classes/safe.html" class="class-button">
+                    <span>View Safe SCPs</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Thaumiel Class -->
+        <div class="class-card thaumiel">
+            <div class="class-header">
+                <i class="fas fa-skull"></i>
+                <h2>THAUMIEL CLASS</h2>
+            </div>
+            <div class="class-content">
+                <p>Thaumiel-class SCPs are anomalies that the Foundation specifically uses to contain other SCPs. They are among the most closely guarded Foundation resources.</p>
+                <ul>
+                    <li>Used for containment</li>
+                    <li>Highly classified</li>
+                    <li>Limited access</li>
+                </ul>
+                <a href="classes/thaumiel.html" class="class-button">
+                    <span>View Thaumiel SCPs</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-section database-stats">
+                <h3><i class="fas fa-database"></i> Database Status</h3>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Active Files</span>
+                        <span class="stat-value">7000+</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Clearance Level</span>
+                        <span class="stat-value">2</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Server Status</span>
+                        <span class="stat-value online">ONLINE</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Last Update</span>
+                        <span class="stat-value">[REDACTED]</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-section security-notice">
+                <div class="notice-content">
+                    <i class="fas fa-exclamation-triangle notice-icon"></i>
+                    <div class="notice-text">
+                        <h3>SECURITY NOTICE</h3>
+                        <p>Access to this database is restricted to authorized personnel only. All activities are monitored and recorded.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="foundation-motto">SECURE • CONTAIN • PROTECT</div>
+            <div class="copyright">© SCP Foundation Database Access Terminal</div>
+        </div>
+    </footer>
+
+    <div class="context-menu"></div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

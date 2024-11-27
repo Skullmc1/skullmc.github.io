@@ -1,0 +1,44 @@
+/* Common styles shared between all class pages */
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+    margin: 0;
+    padding: 20px;
+    color: #d4d4d4;
+    min-height: 100vh;
+}
+
+.header {
+    background: linear-gradient(180deg, #000000, #1a1a1a);
+    padding: 30px 20px;
+    text-align: center;
+    border: 2px solid #333;
+    margin-bottom: 30px;
+    position: relative;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('../../texture.png');
+    background-repeat: repeat;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.back-button {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-red);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    z-index: 10; /* Add this */
+    padding: 10px; /* Add this */
+    cursor: pointer; /* Add this */
+}
+
+.header {
+    /* ... existing styles ... */
+    z-index: 1; /* Add this */
+}

@@ -1,0 +1,149 @@
+/* SCP-049 Specific Styles */
+:root {
+    --plague-green: #2a4734;
+    --parchment: #f4e4bc;
+    --ink-black: #1a1a1a;
+    --blood-red: #8b0000;
+}
+
+.scp-image-container {
+    position: relative;
+    width: 300px;
+    margin: 20px auto;
+    border: 2px solid var(--plague-green);
+    box-shadow: 0 0 15px rgba(42, 71, 52, 0.3);
+    background: #000;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.scp-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: sepia(50%) hue-rotate(30deg);
+    transition: all 0.3s ease;
+}
+
+/* Medieval parchment overlay effect */
+.medieval-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/parchment-texture.png');
+    opacity: 0.1;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+.image-warning {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(42, 71, 52, 0.9);
+    color: var(--parchment);
+    padding: 8px;
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Warning box styling */
+.warning-box {
+    background: linear-gradient(45deg, var(--plague-green), #1a2f23);
+    color: var(--parchment);
+    padding: 15px;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid var(--plague-green);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { background: linear-gradient(45deg, var(--plague-green), #1a2f23); }
+    50% { background: linear-gradient(45deg, #1a2f23, var(--plague-green)); }
+}
+
+/* Interview log styling */
+.interview-log {
+    background: rgba(244, 228, 188, 0.05);
+    border: 1px solid var(--plague-green);
+    padding: 20px;
+    margin: 15px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.dialogue {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.speaker {
+    color: var(--plague-green);
+    font-weight: bold;
+}
+
+/* Incident report styling */
+.incident-report {
+    background: rgba(42, 71, 52, 0.1);
+    border-left: 4px solid var(--plague-green);
+    padding: 15px;
+    margin: 10px 0;
+}
+
+/* Notice styling */
+.notice {
+    background: rgba(42, 71, 52, 0.1);
+    border: 1px solid var(--plague-green);
+    padding: 15px;
+    margin: 15px 0;
+}
+
+/* Old document effect */
+.section {
+    position: relative;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 28px,
+            rgba(42, 71, 52, 0.1) 28px,
+            rgba(42, 71, 52, 0.1) 29px
+        );
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Ink splatter effects */
+.section h2::before {
+    content: '•';
+    color: var(--plague-green);
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .scp-image-container {
+        width: 250px;
+    }
+    
+    .warning-box {
+        font-size: 0.9em;
+    }
+} 

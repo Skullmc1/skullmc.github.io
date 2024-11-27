@@ -1,0 +1,161 @@
+/* SCP-409 Specific Styles */
+:root {
+    --crystal-blue: #89CFF0;
+    --crystal-highlight: #A7E7FF;
+    --danger-red: #ff0000;
+    --ice-white: #F0FFFF;
+}
+
+.scp-image-container {
+    position: relative;
+    width: 300px;
+    margin: 20px auto;
+    border: 2px solid var(--crystal-blue);
+    box-shadow: 0 0 15px rgba(137, 207, 240, 0.3);
+    background: #000;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.scp-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(120%) saturate(80%) contrast(110%);
+    transition: all 0.3s ease;
+}
+
+/* Crystal overlay effect */
+.crystal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, transparent 45%, rgba(137, 207, 240, 0.2) 50%, transparent 55%),
+        repeating-linear-gradient(45deg, 
+            rgba(137, 207, 240, 0) 0%, 
+            rgba(137, 207, 240, 0.1) 10%, 
+            rgba(137, 207, 240, 0) 20%
+        );
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: crystal-shimmer 4s infinite;
+}
+
+@keyframes crystal-shimmer {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.3; }
+}
+
+.image-warning {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 0, 0, 0.9);
+    color: white;
+    padding: 8px;
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    animation: warning-flash 2s infinite;
+}
+
+@keyframes warning-flash {
+    0%, 100% { background: rgba(255, 0, 0, 0.9); }
+    50% { background: rgba(139, 0, 0, 0.9); }
+}
+
+/* Warning box styling */
+.warning-box {
+    background: linear-gradient(45deg, #000033, #000066);
+    color: var(--ice-white);
+    padding: 15px;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid var(--crystal-blue);
+    animation: crystal-pulse 2s infinite;
+}
+
+@keyframes crystal-pulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(137, 207, 240, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(137, 207, 240, 0.5); }
+}
+
+/* Test log styling */
+.test-log {
+    background: rgba(137, 207, 240, 0.05);
+    border: 1px solid var(--crystal-blue);
+    padding: 20px;
+    margin: 15px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.log-entry {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(137, 207, 240, 0.2);
+}
+
+.timestamp {
+    color: var(--crystal-blue);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.result {
+    color: var(--danger-red);
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Notice styling */
+.notice {
+    background: rgba(137, 207, 240, 0.1);
+    border: 1px solid var(--crystal-blue);
+    padding: 15px;
+    margin: 15px 0;
+}
+
+/* Crystal growth effect on hover */
+.scp-image-container:hover .scp-image {
+    filter: brightness(150%) saturate(120%) contrast(120%);
+    transform: scale(1.02);
+}
+
+/* Crystallization pattern */
+.scp-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(137, 207, 240, 0.1) 10px,
+            rgba(137, 207, 240, 0.1) 20px
+        );
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .scp-image-container {
+        width: 250px;
+    }
+    
+    .warning-box {
+        font-size: 0.9em;
+    }
+} 

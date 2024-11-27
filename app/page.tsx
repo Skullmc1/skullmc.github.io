@@ -5,26 +5,26 @@ import ClientChatWrapper from './components/ClientChatWrapper';
 export default function Home() {
   const newProjects = [
     {
-      title: "Nerton",
-      description: "A living town's website. Nerton is always watching you.",
-      link: "/projects/nerton/index.html",
-      tech: ["HTML", "CSS", "JavaScript"]
-    },
-    {
       title: "SCP Library",
-      description: "Digital archive of SCP Foundation articles and entries",
+      description: "Always Updating SCP Archive",
       link: "/projects/scp/index.html",
       tech: ["HTML", "CSS", "JavaScript"]
     },
     {
-      title: "Solar Kingdom v2",
-      description: "Redesigned and enhanced version of the solar energy company website",
-      link: "/projects/solarkingdomv2/index.html",
+      title: "Nerton",
+      description: "A living town's website. Nerton is always watching you.",
+      link: "/projects/nerton/index.html",
       tech: ["HTML", "CSS", "JavaScript"]
     }
   ];
 
   const projects = [
+    {
+      title: "Solar Kingdom v2",
+      description: "Redesigned and enhanced version of the solar energy company website",
+      link: "/projects/solarkingdomv2/index.html",
+      tech: ["HTML", "CSS", "JavaScript"]
+    },
     {
       title: "Solar Kingdom",
       description: "Modern website for a sustainable solar energy company",
