@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="darkmode.css">
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+        <link rel="alternate icon" href="assets/favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <title>Qclid | Developer Portfolio</title>
+        <meta name="description" content="Qclid - Full-Stack Developer & Software Architect. Crafting beautiful web experiences & powerful applications">
+        <meta name="keywords" content="full-stack developer, software architect, web development, flutter, python">
+        <meta property="og:title" content="Qclid | Developer Portfolio">
+        <meta property="og:description" content="Full-Stack Developer & Software Architect">
+        <audio id="ambientAudio" loop>
+            <source src="audio/ambience.wav" type="audio/wav">
+        </audio>
+    </head>
+    <body>
+        <div class="preloader">
+            <div class="bouncing-loader">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="theme-checkbox">
+                <span class="sr-only">Toggle dark mode</span>
+                <input type="checkbox" id="theme-checkbox" title="Toggle dark mode">
+                <div class="slider round">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </div>
+            </label>
+        </div>
+
+        <div class="top-container">
+            <canvas id="heroCanvas"></canvas>
+            <div class="header-content">
+                <h1>Hi, I'm <span class="highlight">Qclid</span> 👋</h1>
+                <h2>Full-Stack Developer & Software Architect</h2>
+                <p class="tagline">Crafting beautiful web experiences & powerful applications</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="primary-cta">
+                        Get in Touch
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="#projects" class="secondary-cta">
+                        View Projects
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+            <div class="floating-elements">
+                <img class="code-icon" src="images/html.svg" alt="HTML Icon" />
+                <img class="python-icon" src="images/python.svg" alt="Python Icon" />
+                <img class="flutter-icon" src="images/flutter.svg" alt="Flutter Icon" />
+            </div>
+        </div>
+
+        <div class="middle-container">
+            <section class="about">
+                <h2>About Me</h2>
+                <p>I'm a passionate developer who loves creating solutions through code. With expertise in both frontend and backend development, I bring ideas to life using various technologies.</p>
+            </section>
+
+            <section class="skills">
+                <h2>My Tech Stack</h2>
+                <div class="skill-categories">
+                    <div class="skill-category">
+                        <h3>Frontend</h3>
+                        <ul>
+                            <li>HTML5 & CSS3</li>
+                            <li>JavaScript</li>
+                            <li>React</li>
+                            <li>Flutter</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>Node.js</li>
+                            <li>SQL</li>
+                            <li>RESTful APIs</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Other Skills</h3>
+                        <ul>
+                            <li>C++</li>
+                            <li>Git</li>
+                            <li>Problem Solving</li>
+                            <li>System Design</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects">
+                <h2>Check Out My Website</h2>
+                <p class="project-description">Where I host some of my projects</p>
+                <div class="project-link">
+                    <a href="https://www.loschicos.online" target="_blank" rel="noopener noreferrer" class="project-button">
+                        Innovative Terminal
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <section class="contact" id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>I'm always interested in hearing about new projects and opportunities.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:skullmc1@gmail.com">skullmc1@gmail.com</a>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://linkedin.com/in/qclid" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/skullmc1" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2024 Qclid • Built with 💙</p>
+            <div class="social-links">
+                <a href="https://github.com/skullmc1" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/qclid" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </footer>
+
+        <button id="scroll-top" class="scroll-top" title="Scroll to top">
+            <span class="sr-only">Scroll to top</span>
+            <i class="fas fa-arrow-up" aria-hidden="true"></i>
+        </button>
+
+        <div class="custom-context-menu">
+            <div class="context-menu-item" data-action="share">
+                <i class="fas fa-share-alt"></i>
+                Share
+            </div>
+            <div class="context-menu-item" data-action="terminal">
+                <i class="fas fa-terminal"></i>
+                Innovation Terminal
+            </div>
+            <div class="context-menu-item" data-action="contact">
+                <i class="fas fa-envelope"></i>
+                Contact
+            </div>
+        </div>
+
+        <div class="audio-controls">
+            <button id="audioToggle" class="audio-toggle" title="Toggle background music">
+                <i class="fas fa-volume-up"></i>
+            </button>
+        </div>
+
+        <script>
+            // Dark mode toggle functionality
+            const toggleSwitch = document.querySelector('#theme-checkbox');
+            const currentTheme = localStorage.getItem('theme');
+
+            if (currentTheme) {
+                document.documentElement.setAttribute('data-theme', currentTheme);
+                if (currentTheme === 'dark') {
+                    toggleSwitch.checked = true;
+                }
+            } else {
+                // Set dark mode as default
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                toggleSwitch.checked = true;
+            }
+
+            function switchTheme(e) {
+                if (e.target.checked) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            toggleSwitch.addEventListener('change', switchTheme);
+
+            // Interactive circles
+            const canvas = document.getElementById('heroCanvas');
+            const ctx = canvas.getContext('2d');
+            let circles = [];
+            let mouse = { x: undefined, y: undefined };
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            window.addEventListener('mousemove', (event) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = event.clientX - rect.left;
+                mouse.y = event.clientY - rect.top;
+            });
+
+            class Circle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 5 + 2;
+                    this.baseX = this.x;
+                    this.baseY = this.y;
+                    this.density = (Math.random() * 30) + 1;
+                    this.isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.fillStyle = this.isDark ? 'rgba(144, 202, 249, 0.2)' : 'rgba(21, 101, 192, 0.2)';
+                    ctx.fill();
+                }
+
+                update() {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    let forceDirectionX = dx / distance;
+                    let forceDirectionY = dy / distance;
+                    let maxDistance = 100;
+                    let force = (maxDistance - distance) / maxDistance;
+                    let directionX = forceDirectionX * force * this.density;
+                    let directionY = forceDirectionY * force * this.density;
+
+                    if (distance < maxDistance) {
+                        this.x -= directionX;
+                        this.y -= directionY;
+                    } else {
+                        if (this.x !== this.baseX) {
+                            let dx = this.x - this.baseX;
+                            this.x -= dx/10;
+                        }
+                        if (this.y !== this.baseY) {
+                            let dy = this.y - this.baseY;
+                            this.y -= dy/10;
+                        }
+                    }
+                }
+            }
+
+            function init() {
+                circles = [];
+                for (let i = 0; i < 150; i++) {
+                    circles.push(new Circle());
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                circles.forEach(circle => {
+                    circle.draw();
+                    circle.update();
+                });
+                requestAnimationFrame(animate);
+            }
+
+            init();
+            animate();
+
+            // Update circles color on theme change
+            toggleSwitch.addEventListener('change', () => {
+                circles.forEach(circle => {
+                    circle.isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                });
+            });
+
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    document.querySelector('.preloader').style.display = 'none';
+                }, 1500);
+            });
+
+            const scrollBtn = document.querySelector("#scroll-top");
+            window.addEventListener("scroll", () => {
+                if (window.pageYOffset > 100) {
+                    scrollBtn.classList.add("active");
+                } else {
+                    scrollBtn.classList.remove("active");
+                }
+            });
+            
+            scrollBtn.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+
+            // Custom Context Menu
+            const contextMenu = document.querySelector('.custom-context-menu');
+            
+            document.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                
+                const { clientX: mouseX, clientY: mouseY } = e;
+                contextMenu.style.display = 'block';
+                
+                // Check boundaries
+                const contextRect = contextMenu.getBoundingClientRect();
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+                
+                // Adjust X position if menu would go off screen
+                if (mouseX + contextRect.width > windowWidth) {
+                    contextMenu.style.left = `${mouseX - contextRect.width}px`;
+                } else {
+                    contextMenu.style.left = `${mouseX}px`;
+                }
+                
+                // Adjust Y position if menu would go off screen
+                if (mouseY + contextRect.height > windowHeight) {
+                    contextMenu.style.top = `${mouseY - contextRect.height}px`;
+                } else {
+                    contextMenu.style.top = `${mouseY}px`;
+                }
+            });
+            
+            // Hide context menu on click outside
+            document.addEventListener('click', () => {
+                contextMenu.style.display = 'none';
+            });
+            
+            // Handle context menu actions
+            document.querySelectorAll('.context-menu-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    const action = e.currentTarget.dataset.action;
+                    switch(action) {
+                        case 'share':
+                            if (navigator.share) {
+                                navigator.share({
+                                    title: 'Qclid - Developer Portfolio',
+                                    url: window.location.href
+                                });
+                            }
+                            break;
+                        case 'terminal':
+                            window.open('https://www.loschicos.online', '_blank');
+                            break;
+                        case 'contact':
+                            window.location.href = 'mailto:skullmc1@gmail.com';
+                            break;
+                    }
+                });
+            });
+
+            // Audio Controls
+            const audioElement = document.getElementById('ambientAudio');
+            const audioToggle = document.getElementById('audioToggle');
+            const volumeIcon = audioToggle.querySelector('i');
+            
+            audioElement.volume = 0.2; // Set initial volume to 20%
+            
+            audioToggle.addEventListener('click', () => {
+                if (audioElement.paused) {
+                    audioElement.play();
+                    volumeIcon.className = 'fas fa-volume-up';
+                } else {
+                    audioElement.pause();
+                    volumeIcon.className = 'fas fa-volume-mute';
+                }
+            });
+            
+            // Play audio on first user interaction with the page
+            document.addEventListener('click', () => {
+                if (!audioElement.played.length) {
+                    audioElement.play();
+                }
+            }, { once: true });
+        </script>
+    </body>
+</html>

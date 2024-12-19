@@ -1,72 +1,80 @@
 import Image from "next/image";
-import Link from 'next/link';
-import ClientChatWrapper from './components/ClientChatWrapper';
+import Link from "next/link";
+import ClientChatWrapper from "./components/ClientChatWrapper";
 
 export default function Home() {
   const newProjects = [
     {
+      title: "Portofoilo Website",
+      description: "A portfolio website for me",
+      link: "/projects/portofolio/index.html",
+      tech: ["HTML", "CSS", "JavaScript"],
+    },
+    {
       title: "Backrooms Experience",
       description: "A website that simulates the backrooms experience",
       link: "/projects/backrooms/index.html",
-      tech: ["HTML", "CSS", "JavaScript"]
+      tech: ["HTML", "CSS", "JavaScript"],
     },
     {
       title: "SCP Library",
       description: "Always Updating SCP Archive",
       link: "/projects/scp/index.html",
-      tech: ["HTML", "CSS", "JavaScript"]
+      tech: ["HTML", "CSS", "JavaScript"],
     },
     {
       title: "Nerton",
       description: "A living town's website. Nerton is always watching you.",
       link: "/projects/nerton/index.html",
-      tech: ["HTML", "CSS", "JavaScript"]
-    }
+      tech: ["HTML", "CSS", "JavaScript"],
+    },
   ];
 
   const projects = [
     {
       title: "Solar Kingdom v2",
-      description: "Redesigned and enhanced version of the solar energy company website",
+      description:
+        "Redesigned and enhanced version of the solar energy company website",
       link: "/projects/solarkingdomv2/index.html",
-      tech: ["HTML", "CSS", "JavaScript"]
+      tech: ["HTML", "CSS", "JavaScript"],
     },
     {
       title: "Solar Kingdom",
       description: "Modern website for a sustainable solar energy company",
       link: "/projects/solarkingdom/index.html",
-      tech: ["HTML", "CSS", "JavaScript"]
+      tech: ["HTML", "CSS", "JavaScript"],
     },
     {
       title: "Supermarket",
-      description: "Eco-friendly supermarket platform promoting sustainable shopping",
+      description:
+        "Eco-friendly supermarket platform promoting sustainable shopping",
       link: "/projects/supermarket/index.html",
-      tech: ["HTML", "CSS", "JavaScript"]
+      tech: ["HTML", "CSS", "JavaScript"],
     },
     {
       title: "Lethal Company",
       description: "Fan website for the popular horror survival game",
       link: "/projects/lc/index.html",
-      tech: ["HTML", "CSS", "JavaScript"]
+      tech: ["HTML", "CSS", "JavaScript"],
     },
     {
       title: "AI Chatbot",
       description: "Interactive AI chatbot with natural language processing",
       link: "/projects/ai",
-      tech: ["Next.js", "HTML", "CSS", "JavaScript"]
+      tech: ["Next.js", "HTML", "CSS", "JavaScript"],
     },
     {
       title: "Futuristic School",
       description: "Website for a high-tech educational institution",
       link: "/projects/school/index.html",
-      tech: ["HTML", "CSS", "JavaScript"]
+      tech: ["HTML", "CSS", "JavaScript"],
     },
     {
       title: "Joke Generator",
       description: "Random joke generator with various categories",
       link: "/projects/joke/index.html",
-      tech: ["HTML", "CSS", "JavaScript"]
-    }
+      tech: ["HTML", "CSS", "JavaScript"],
+    },
   ];
 
   return (
@@ -79,7 +87,7 @@ export default function Home() {
             alt="Background Logo"
             fill
             className="object-cover rounded-full animate-pulse"
-            style={{ filter: 'blur(20px)' }}
+            style={{ filter: "blur(20px)" }}
           />
         </div>
       </div>
@@ -109,7 +117,9 @@ export default function Home() {
               >
                 <h2 className="text-xl font-semibold mb-2">
                   {project.title}
-                  <span className="ml-2 inline-block px-2 py-1 text-xs bg-blue-500 text-white rounded-full">New</span>
+                  <span className="ml-2 inline-block px-2 py-1 text-xs bg-blue-500 text-white rounded-full">
+                    New
+                  </span>
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   {project.description}
