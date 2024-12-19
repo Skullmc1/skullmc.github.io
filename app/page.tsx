@@ -138,7 +138,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-
+        <SpeedInsights />
         {/* Existing Projects Section */}
         <h2 className="text-2xl font-bold mb-6 text-center">All Projects</h2>
         {/* Projects Grid */}
