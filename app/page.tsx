@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ClientChatWrapper from "./components/ClientChatWrapper";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 export default function Home() {
   const newProjects = [
     {
