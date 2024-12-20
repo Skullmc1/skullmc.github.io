@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "What 2 Watch",
@@ -9,11 +8,13 @@ export const metadata: Metadata = {
   },
 };
 
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
 export default function What2WatchLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: LayoutProps): JSX.Element {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-950 via-black to-purple-900 relative">
       <a

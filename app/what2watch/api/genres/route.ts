@@ -3,10 +3,14 @@ import { NextResponse } from "next/server";
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 
-export async function GET(request: Request) {
+interface GenreResponse {
+  genres: Array<{ id: number; name: string }>;
+}
+
+export async function GET(request: Request): Promise<NextResponse> {
   try {
     const { searchParams } = new URL(request.url);
-    const mediaType = searchParams.get("mediaType") || "movie";
+    const mediaType = searchParams.get("mediaType") ?? "movie";
 
     const response = await fetch(
       `${BASE_URL}/genre/${mediaType}/list?api_key=${TMDB_API_KEY}&language=en-US`,
@@ -16,7 +20,7 @@ export async function GET(request: Request) {
       throw new Error("Failed to fetch genres");
     }
 
-    const data = await response.json();
+    const data: GenreResponse = await response.json();
     return NextResponse.json(data);
   } catch (error) {
     return NextResponse.json(
