@@ -10,7 +10,7 @@ export default function Home() {
     {
       title: "What2Watch",
       description: "A Movie and TV Show Recommendation Website",
-      link: "/projects/what2watch/index.html",
+      link: "/what2watch",
       tech: ["HTML", "CSS", "JavaScript"],
     },
     {

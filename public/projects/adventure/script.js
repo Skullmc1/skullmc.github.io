@@ -1,4 +1,4 @@
-const GEMINI_API_KEY = "AIzaSyBKZPKWgBnSzFmkxMxSadABo-Nag1sqKKQ"; // Replace with your API key
+const GEMINI_API_KEY = "AIzaSyCjH5gxliTjFvkBLLdsZwljB9PJhaK3yCc";
 const API_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
 
