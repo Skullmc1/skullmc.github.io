@@ -1,159 +1,96 @@
-<!doctype html>
-<html>
-    <head>
-        <title>Qclid's Portfolio</title>
-        <link rel="stylesheet" type="text/css" href="style.css" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Pacifico&display=swap"
-            rel="stylesheet"
-        />
-    </head>
-    <body>
-        <div class="background-shapes"></div>
-        <div class="container">
-            <div class="header">
-                <h1>Qclid's Portfolio</h1>
-                <div class="menu">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qclid Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" type = "text/css" href = "style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Qclid</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <ul class="custom-menu" id="customMenu">
+        <li class="menu-item" id="shareItem">Share</li>
+        <li class="menu-item" id="terminalItem">Innovative Terminal</li>
+    </ul>    
 
-            <div class="content">
-                <div class="profile-section">
-                    <img
-                        src="https://i.postimg.cc/FH8cCxRW/logo150.png"
-                        class="profile-img"
-                        alt="Profile Picture"
-                    />
-                    <h2>Hello, I'm Qclid! ✨</h2>
-                    <p class="subtitle">Web Developer & Designer</p>
-                    <div class="bio">
-                        <p>
-                            Creating beautiful and functional websites with
-                            passion and creativity
-                        </p>
-                    </div>
-                </div>
-
-                <div class="skills-section">
-                    <h3>My Skills</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card">
-                            <span class="skill-icon">💻</span>
-                            <p>HTML & CSS</p>
-                            <div class="skill-level">
-                                <div class="progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <span class="skill-icon">🎨</span>
-                            <p>UI/UX Design</p>
-                            <div class="skill-level">
-                                <div class="progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <span class="skill-icon">📱</span>
-                            <p>Responsive Design</p>
-                            <div class="skill-level">
-                                <div class="progress" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <span class="skill-icon">⚡</span>
-                            <p>JavaScript</p>
-                            <div class="skill-level">
-                                <div class="progress" style="width: 82%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="projects-section">
-                    <h3>Featured Projects</h3>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img
-                                    class="project-image2"
-                                    src="https://i.postimg.cc/MHHp8h3y/image.png"
-                                    alt="SCP Library"
-                                />
-                            </div>
-                            <h4>SCP Library</h4>
-                            <p>
-                                A fan website for the community driven SCP
-                                horror.
-                            </p>
-                            <div class="project-tags">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JS</span>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img
-                                    src="https://i.postimg.cc/Rh15yG4c/image.png"
-                                    alt="Portofolio"
-                                    class="project-image2"
-                                />
-                            </div>
-                            <h4>Portofolio</h4>
-                            <p>Another Portofolio website design.</p>
-                            <div class="project-tags">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JS</span>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img
-                                    src="https://i.postimg.cc/cLkqpvy5/image.png"
-                                    alt="Nerton"
-                                    class="project-image2"
-                                />
-                            </div>
-                            <h4>Nerton</h4>
-                            <p>
-                                A creepy website for a haunted town named
-                                Nerton.
-                            </p>
-                            <div class="project-tags">
-                                <span>React</span>
-                                <span>Node.js</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <footer>
-                <div class="contact-section">
-                    <h3>Let's Connect!</h3>
-                    <div class="social-links">
-                        <a
-                            href="https://github.com/Skullmc1"
-                            class="social-icon"
-                        >
-                            <span>GitHub</span>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <span>Twitter</span>
-                        </a>
-                    </div>
-                </div>
-                <p>&copy; 2024 Qclid | Made with 💖</p>
-            </footer>
+    <section class="hero">
+        <div class="content">
+            <h2>Welcome to My Portfolio</h2>
+            <p>Crafting websites, software, and designs to bring ideas to life.</p>
         </div>
-    </body>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Hello! I am <strong>Qclid</strong>, a passionate developer specializing in web and software design. I love bringing ideas to life through stunning and functional digital experiences. My expertise lies in crafting user-friendly interfaces and writing clean, efficient code to solve real-world problems.</p>
+                <p>Whether it's creating responsive websites or building robust software, I am committed to delivering excellence and innovation in every project I undertake.</p>
+            </div>
+            <div class="about-image">
+                <img src="about.jpg" alt="A photo of Qclid at work" />
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="web1.jpg" alt="Web Project 1">
+                <h3>Web Project 1</h3>
+                <p>Placeholder for now, I'll fill this in later.</p>
+            </div>
+            <div class="project-card">
+                <img src="web2.jpg" alt="Web Project 2">
+                <h3>Web Project 2</h3>
+                <p>Placeholder for now, I'll fill this in later.</p>
+            </div>
+            <div class="project-card">
+                <img src="software1.jpg" alt="Software 1">
+                <h3>Software 1</h3>
+                <p>Placeholder for now, I'll fill this in later.</p>
+            </div>
+            <div class="project-card">
+                <img src="software2.jpg" alt="Software 2">
+                <h3>Software 2</h3>
+                <p>Placeholder for now, I'll fill this in later.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p class="contact-intro">Feel free to reach out through any of the platforms below!</p>
+        <div class="contact-icons">
+            <a href="mailto:qclid@example.com" class="contact-icon" title="Email Me">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <button class="contact-icon discord-btn" title="Copy Discord Username">
+                <i class="fab fa-discord"></i>
+            </button>
+            <a href="https://github.com/Skullmc1" class="contact-icon" target="_blank" title="Visit My GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2024 Qclid. All rights reserved. <a href="#contact">Contact Me</a></p>
+    </footer>
+</body>
 </html>
