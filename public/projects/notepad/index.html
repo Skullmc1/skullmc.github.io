@@ -77,11 +77,16 @@
                         </select>
                         <div class="separator"></div>
                         <div class="voice-controls">
-                                <button id="recordButton" class="format-btn" onclick="toggleRecording()">
-                                    <i class="fas fa-microphone"></i>
-                                </button>
-                                <span id="recordingTime" class="recording-time">00:00</span>
-                            </div>
+                            <button
+                                id="recordButton"
+                                class="format-btn"
+                                onclick="toggleRecording()"
+                            >
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <span id="recordingTime" class="recording-time"
+                                >00:00</span
+                            >
                         </div>
                     </div>
 
@@ -445,7 +450,9 @@
             // Initialize voice recording
             async function initializeRecording() {
                 try {
-                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    const stream = await navigator.mediaDevices.getUserMedia({
+                        audio: true,
+                    });
                     mediaRecorder = new MediaRecorder(stream);
 
                     mediaRecorder.ondataavailable = (event) => {
@@ -454,34 +461,35 @@
 
                     mediaRecorder.onstop = saveVoiceNote;
 
-                    showNotification('Microphone access granted', 'success');
+                    showNotification("Microphone access granted", "success");
                 } catch (err) {
-                    console.error('Error accessing microphone:', err);
-                    showNotification('Error accessing microphone', 'error');
+                    console.error("Error accessing microphone:", err);
+                    showNotification("Error accessing microphone", "error");
                 }
             }
 
             // Toggle recording
             function toggleRecording() {
-                const recordButton = document.getElementById('recordButton');
+                const recordButton = document.getElementById("recordButton");
 
                 if (!isRecording) {
                     // Start recording
                     audioChunks = [];
                     mediaRecorder.start();
                     isRecording = true;
-                    recordButton.classList.add('recording');
+                    recordButton.classList.add("recording");
                     recordButton.innerHTML = '<i class="fas fa-stop"></i>';
                     startRecordingTimer();
-                    showNotification('Recording started...', 'warning');
+                    showNotification("Recording started...", "warning");
                 } else {
                     // Stop recording
                     mediaRecorder.stop();
                     isRecording = false;
-                    recordButton.classList.remove('recording');
-                    recordButton.innerHTML = '<i class="fas fa-microphone"></i>';
+                    recordButton.classList.remove("recording");
+                    recordButton.innerHTML =
+                        '<i class="fas fa-microphone"></i>';
                     stopRecordingTimer();
-                    showNotification('Recording saved!', 'success');
+                    showNotification("Recording saved!", "success");
                 }
             }
 
@@ -502,27 +510,37 @@
             }
 
             function updateRecordingTime() {
-                const minutes = Math.floor(recordingDuration / 60).toString().padStart(2, '0');
-                const seconds = (recordingDuration % 60).toString().padStart(2, '0');
-                document.getElementById('recordingTime').textContent = `${minutes}:${seconds}`;
+                const minutes = Math.floor(recordingDuration / 60)
+                    .toString()
+                    .padStart(2, "0");
+                const seconds = (recordingDuration % 60)
+                    .toString()
+                    .padStart(2, "0");
+                document.getElementById("recordingTime").textContent =
+                    `${minutes}:${seconds}`;
             }
 
             // Save voice note
             function saveVoiceNote() {
-                const blob = new Blob(audioChunks, { type: 'audio/webm' });
+                const blob = new Blob(audioChunks, { type: "audio/webm" });
                 const reader = new FileReader();
 
                 reader.onload = () => {
                     const audioData = reader.result;
-                    const voiceNotes = JSON.parse(localStorage.getItem('voiceNotes') || '[]');
+                    const voiceNotes = JSON.parse(
+                        localStorage.getItem("voiceNotes") || "[]",
+                    );
 
                     voiceNotes.push({
                         id: Date.now(),
                         data: audioData,
-                        date: new Date().toISOString()
+                        date: new Date().toISOString(),
                     });
 
-                    localStorage.setItem('voiceNotes', JSON.stringify(voiceNotes));
+                    localStorage.setItem(
+                        "voiceNotes",
+                        JSON.stringify(voiceNotes),
+                    );
                     displayVoiceNotes();
                 };
 
@@ -531,14 +549,17 @@
 
             // Display voice notes
             function displayVoiceNotes() {
-                const voiceNotesList = document.getElementById('voiceNotesList');
-                const voiceNotes = JSON.parse(localStorage.getItem('voiceNotes') || '[]');
+                const voiceNotesList =
+                    document.getElementById("voiceNotesList");
+                const voiceNotes = JSON.parse(
+                    localStorage.getItem("voiceNotes") || "[]",
+                );
 
-                voiceNotesList.innerHTML = '';
+                voiceNotesList.innerHTML = "";
 
-                voiceNotes.forEach(note => {
-                    const noteElement = document.createElement('div');
-                    noteElement.className = 'voice-note';
+                voiceNotes.forEach((note) => {
+                    const noteElement = document.createElement("div");
+                    noteElement.className = "voice-note";
 
                     const date = new Date(note.date).toLocaleString();
 
@@ -559,30 +580,43 @@
 
             // Delete voice note
             function deleteVoiceNote(id) {
-                if (confirm('Are you sure you want to delete this voice note?')) {
-                    const voiceNotes = JSON.parse(localStorage.getItem('voiceNotes') || '[]');
-                    const updatedNotes = voiceNotes.filter(note => note.id !== id);
-                    localStorage.setItem('voiceNotes', JSON.stringify(updatedNotes));
+                if (
+                    confirm("Are you sure you want to delete this voice note?")
+                ) {
+                    const voiceNotes = JSON.parse(
+                        localStorage.getItem("voiceNotes") || "[]",
+                    );
+                    const updatedNotes = voiceNotes.filter(
+                        (note) => note.id !== id,
+                    );
+                    localStorage.setItem(
+                        "voiceNotes",
+                        JSON.stringify(updatedNotes),
+                    );
                     displayVoiceNotes();
-                    showNotification('Voice note deleted', 'success');
+                    showNotification("Voice note deleted", "success");
                 }
             }
 
             // Update clear function to include voice notes
             function clearNote() {
-                if (confirm('Are you sure you want to clear all content? This cannot be undone.')) {
-                    document.getElementById('notepad').innerHTML = '';
-                    imageContainer.innerHTML = '';
-                    localStorage.removeItem('notepadText');
-                    localStorage.removeItem('notepadImages');
-                    localStorage.removeItem('voiceNotes');
+                if (
+                    confirm(
+                        "Are you sure you want to clear all content? This cannot be undone.",
+                    )
+                ) {
+                    document.getElementById("notepad").innerHTML = "";
+                    imageContainer.innerHTML = "";
+                    localStorage.removeItem("notepadText");
+                    localStorage.removeItem("notepadImages");
+                    localStorage.removeItem("voiceNotes");
                     displayVoiceNotes();
-                    showNotification('All content has been cleared', 'warning');
+                    showNotification("All content has been cleared", "warning");
                 }
             }
 
             // Initialize voice recording when page loads
-            document.addEventListener('DOMContentLoaded', () => {
+            document.addEventListener("DOMContentLoaded", () => {
                 initializeRecording();
                 displayVoiceNotes();
             });
