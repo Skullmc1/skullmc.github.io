@@ -5,9 +5,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 export default function Home() {
   const newProjects = [
     {
-      title: "Portofolio Website 2",
-      description: "A portfolio website for me",
-      link: "/projects/portofolio2/index.html",
+      title: "Notepad",
+      description: "im out of ideas so i made a notepad",
+      link: "/projects/notepad/index.html",
       tech: ["HTML", "CSS", "JavaScript"],
     },
     {
