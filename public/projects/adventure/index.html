@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Branching Realms</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Crimson+Text&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    </head>
+    <body>
+        <div id="preloader" class="preloader">
+            <div class="scroll-container">
+                <div class="scroll-image"></div>
+                <div class="loading-text">Loading thy adventure...</div>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+        <audio id="backgroundMusic" loop>
+            <source src="background.mp3" type="audio/mpeg" />
+        </audio>
+
+        <div class="audio-controls">
+            <button id="toggleMusic" class="music-btn">
+                <img src="harp-icon.png" alt="Music" class="music-icon" />
+            </button>
+            <div class="volume-control">
+                <input
+                    type="range"
+                    id="volumeSlider"
+                    min="0"
+                    max="100"
+                    value="30"
+                    class="volume-slider"
+                />
+                <div class="volume-track"></div>
+            </div>
+        </div>
+        <div class="torch left"></div>
+        <div class="torch right"></div>
+
+        <div class="container">
+            <div class="scroll">
+                <h1>Branching Realms</h1>
+
+                <div class="setup-section">
+                    <h2>Begin Your Journey</h2>
+                    <div class="form-group">
+                        <label for="characterName">Hero's Name:</label>
+                        <input
+                            type="text"
+                            id="characterName"
+                            placeholder="Enter thy name..."
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre">Choose Your Realm:</label>
+                        <select id="genre">
+                            <option value="fantasy">Mystical Fantasy</option>
+                            <option value="sci-fi">Cosmic Adventure</option>
+                            <option value="mystery">Dark Mystery</option>
+                            <option value="horror">Ancient Horror</option>
+                        </select>
+                    </div>
+
+                    <button id="startAdventure" class="btn-adventure">
+                        Embark on Quest
+                    </button>
+                </div>
+
+                <div class="story-section">
+                    <div id="storyLoader" class="story-loader hidden">
+                        <div class="quill-container">
+                            <div class="quill"></div>
+                            <div class="ink-drops"></div>
+                        </div>
+                        <div class="loading-text">Writing thy tale...</div>
+                    </div>
+                    <div id="storyText" class="story-text"></div>
+                    <div class="choices">
+                        <button id="choice1" class="choice-btn"></button>
+                        <button id="choice2" class="choice-btn"></button>
+                        <button id="choice3" class="choice-btn"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -5,6 +5,12 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 export default function Home() {
   const newProjects = [
     {
+      title: "Branching Realms",
+      description: "An Auto Generating Text Adventure Game",
+      link: "/projects/adventure/index.html",
+      tech: ["HTML", "CSS", "JavaScript"],
+    },
+    {
       title: "Notepad",
       description: "im out of ideas so i made a notepad",
       link: "/projects/notepad/index.html",
