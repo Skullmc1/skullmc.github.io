@@ -55,7 +55,7 @@ export default function What2Watch() {
     setLoading(true);
 
     try {
-      const response = await fetch("/what2watch/api", {
+      const response = await fetch("/api/what2watch", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
