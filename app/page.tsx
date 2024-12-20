@@ -8,12 +8,6 @@ client.setProject("w2w");
 export default function Home() {
   const newProjects = [
     {
-      title: "What2Watch",
-      description: "A Movie and TV Show Recommendation Website",
-      link: "/what2watch",
-      tech: ["HTML", "CSS", "JavaScript"],
-    },
-    {
       title: "Branching Realms",
       description: "An Auto Generating Text Adventure Game",
       link: "/projects/adventure/index.html",
