@@ -5,11 +5,20 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 export default function Home() {
   const newProjects = [
     {
-      title: "Portofoilo Website",
+      title: "Portofolio Website 2",
+      description: "A portfolio website for me",
+      link: "/projects/portofolio2/index.html",
+      tech: ["HTML", "CSS", "JavaScript"],
+    },
+    {
+      title: "Portofolio Website",
       description: "A portfolio website for me",
       link: "/projects/portofolio/index.html",
       tech: ["HTML", "CSS", "JavaScript"],
     },
+  ];
+
+  const projects = [
     {
       title: "Backrooms Experience",
       description: "A website that simulates the backrooms experience",
@@ -28,9 +37,6 @@ export default function Home() {
       link: "/projects/nerton/index.html",
       tech: ["HTML", "CSS", "JavaScript"],
     },
-  ];
-
-  const projects = [
     {
       title: "Solar Kingdom v2",
       description:
