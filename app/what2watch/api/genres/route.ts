@@ -22,8 +22,7 @@ export async function GET(request: Request): Promise<NextResponse> {
 
     const data: GenreResponse = await response.json();
     return NextResponse.json(data);
-  } catch (_error) {
-    // Added underscore to indicate intentionally unused parameter
+  } catch {
     return NextResponse.json(
       { error: "Failed to fetch genres" },
       { status: 500 },
