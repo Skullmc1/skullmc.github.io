@@ -23,11 +23,78 @@
 
             <main>
                 <div class="notepad-container">
-                    <textarea
-                        id="notepad"
-                        placeholder="Type your notes here..."
-                    ></textarea>
+                    <div class="formatting-toolbar">
+                        <button onclick="formatText('bold')" class="format-btn">
+                            <i class="fas fa-bold"></i>
+                        </button>
+                        <button
+                            onclick="formatText('italic')"
+                            class="format-btn"
+                        >
+                            <i class="fas fa-italic"></i>
+                        </button>
+                        <button
+                            onclick="formatText('underline')"
+                            class="format-btn"
+                        >
+                            <i class="fas fa-underline"></i>
+                        </button>
+                        <div class="separator"></div>
+                        <button
+                            onclick="formatText('justifyLeft')"
+                            class="format-btn"
+                        >
+                            <i class="fas fa-align-left"></i>
+                        </button>
+                        <button
+                            onclick="formatText('justifyCenter')"
+                            class="format-btn"
+                        >
+                            <i class="fas fa-align-center"></i>
+                        </button>
+                        <button
+                            onclick="formatText('justifyRight')"
+                            class="format-btn"
+                        >
+                            <i class="fas fa-align-right"></i>
+                        </button>
+                        <div class="separator"></div>
+                        <input
+                            type="color"
+                            id="colorPicker"
+                            onchange="formatText('foreColor', this.value)"
+                            class="color-picker"
+                        />
+                        <select
+                            id="fontSize"
+                            onchange="formatText('fontSize', this.value)"
+                            class="font-size-picker"
+                        >
+                            <option value="1">Small</option>
+                            <option value="3" selected>Normal</option>
+                            <option value="5">Large</option>
+                            <option value="7">Extra Large</option>
+                        </select>
+                        <div class="separator"></div>
+                        <div class="voice-controls">
+                                <button id="recordButton" class="format-btn" onclick="toggleRecording()">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                                <span id="recordingTime" class="recording-time">00:00</span>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div
+                        id="notepad"
+                        class="rich-notepad"
+                        contenteditable="true"
+                        placeholder="Type your notes here..."
+                    ></div>
+                    <div id="voiceNotesContainer" class="voice-notes-container">
+                        <h3 class="voice-notes-title">Voice Notes</h3>
+                        <div id="voiceNotesList"></div>
+                    </div>
                     <div class="button-group">
                         <div class="file-input-wrapper">
                             <input
@@ -79,7 +146,7 @@
             window.onload = function () {
                 const savedText = localStorage.getItem("notepadText");
                 if (savedText) {
-                    notepad.value = savedText;
+                    document.getElementById("notepad").innerHTML = savedText;
                 }
 
                 const savedImages = JSON.parse(
@@ -128,8 +195,26 @@
                     }, 500);
                 }, 3000);
             }
+            // Format text function
+            function formatText(command, value = null) {
+                document.execCommand(command, false, value);
+
+                // Update button states
+                if (!value) {
+                    const button = document.querySelector(
+                        `[onclick="formatText('${command}')"]`,
+                    );
+                    if (button) {
+                        button.classList.toggle("active");
+                    }
+                }
+            }
+
             function downloadNote() {
-                const text = notepad.value;
+                const notepad = document.getElementById("notepad");
+                const text = notepad.innerText; // Use innerText to get plain text
+                const htmlContent = notepad.innerHTML; // Use innerHTML to get formatted content
+
                 if (!text) {
                     showNotification(
                         "Nothing to download! The notepad is empty.",
@@ -138,23 +223,31 @@
                     return;
                 }
 
-                const blob = new Blob([text], { type: "text/plain" });
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement("a");
-
-                // Get current date for filename
+                // Create downloads for both plain text and HTML versions
+                const textBlob = new Blob([text], { type: "text/plain" });
+                const htmlBlob = new Blob([htmlContent], { type: "text/html" });
                 const date = new Date().toISOString().slice(0, 10);
 
-                a.href = url;
-                a.download = `notes_${date}.txt`;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-                document.body.removeChild(a);
+                // Download plain text version
+                const textUrl = window.URL.createObjectURL(textBlob);
+                const textLink = document.createElement("a");
+                textLink.href = textUrl;
+                textLink.download = `notes_${date}.txt`;
+                textLink.click();
+                window.URL.revokeObjectURL(textUrl);
 
-                showNotification("Note downloaded successfully! 📝");
+                // Download HTML version
+                const htmlUrl = window.URL.createObjectURL(htmlBlob);
+                const htmlLink = document.createElement("a");
+                htmlLink.href = htmlUrl;
+                htmlLink.download = `notes_${date}.html`;
+                htmlLink.click();
+                window.URL.revokeObjectURL(htmlUrl);
+
+                showNotification(
+                    "Note downloaded in both plain text and HTML format! 📝",
+                );
             }
-
             // Function to download images as zip
             async function downloadImages() {
                 const savedImages = JSON.parse(
@@ -218,9 +311,10 @@
                 });
             }
             function saveNote() {
-                const text = notepad.value;
-                localStorage.setItem("notepadText", text);
-
+                const noteContent =
+                    document.getElementById("notepad").innerHTML;
+                localStorage.setItem("notepadText", noteContent);
+                showNotification("Note saved successfully! 📝");
                 if (text.trim()) {
                     showNotification("Note saved successfully! 📝");
                 } else {
@@ -234,7 +328,7 @@
                         "Are you sure you want to clear all content? This cannot be undone.",
                     )
                 ) {
-                    notepad.value = "";
+                    document.getElementById("notepad").innerHTML = "";
                     imageContainer.innerHTML = "";
                     localStorage.removeItem("notepadText");
                     localStorage.removeItem("notepadImages");
@@ -324,6 +418,174 @@
                 imgWrapper.appendChild(deleteBtn);
                 imageContainer.appendChild(imgWrapper);
             }
+            document.addEventListener("keydown", function (e) {
+                if (e.ctrlKey || e.metaKey) {
+                    switch (e.key.toLowerCase()) {
+                        case "b":
+                            e.preventDefault();
+                            formatText("bold");
+                            break;
+                        case "i":
+                            e.preventDefault();
+                            formatText("italic");
+                            break;
+                        case "u":
+                            e.preventDefault();
+                            formatText("underline");
+                            break;
+                    }
+                }
+            });
+            let mediaRecorder;
+            let audioChunks = [];
+            let isRecording = false;
+            let recordingTimer;
+            let recordingDuration = 0;
+
+            // Initialize voice recording
+            async function initializeRecording() {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    mediaRecorder = new MediaRecorder(stream);
+
+                    mediaRecorder.ondataavailable = (event) => {
+                        audioChunks.push(event.data);
+                    };
+
+                    mediaRecorder.onstop = saveVoiceNote;
+
+                    showNotification('Microphone access granted', 'success');
+                } catch (err) {
+                    console.error('Error accessing microphone:', err);
+                    showNotification('Error accessing microphone', 'error');
+                }
+            }
+
+            // Toggle recording
+            function toggleRecording() {
+                const recordButton = document.getElementById('recordButton');
+
+                if (!isRecording) {
+                    // Start recording
+                    audioChunks = [];
+                    mediaRecorder.start();
+                    isRecording = true;
+                    recordButton.classList.add('recording');
+                    recordButton.innerHTML = '<i class="fas fa-stop"></i>';
+                    startRecordingTimer();
+                    showNotification('Recording started...', 'warning');
+                } else {
+                    // Stop recording
+                    mediaRecorder.stop();
+                    isRecording = false;
+                    recordButton.classList.remove('recording');
+                    recordButton.innerHTML = '<i class="fas fa-microphone"></i>';
+                    stopRecordingTimer();
+                    showNotification('Recording saved!', 'success');
+                }
+            }
+
+            // Recording timer
+            function startRecordingTimer() {
+                recordingDuration = 0;
+                updateRecordingTime();
+                recordingTimer = setInterval(() => {
+                    recordingDuration++;
+                    updateRecordingTime();
+                }, 1000);
+            }
+
+            function stopRecordingTimer() {
+                clearInterval(recordingTimer);
+                recordingDuration = 0;
+                updateRecordingTime();
+            }
+
+            function updateRecordingTime() {
+                const minutes = Math.floor(recordingDuration / 60).toString().padStart(2, '0');
+                const seconds = (recordingDuration % 60).toString().padStart(2, '0');
+                document.getElementById('recordingTime').textContent = `${minutes}:${seconds}`;
+            }
+
+            // Save voice note
+            function saveVoiceNote() {
+                const blob = new Blob(audioChunks, { type: 'audio/webm' });
+                const reader = new FileReader();
+
+                reader.onload = () => {
+                    const audioData = reader.result;
+                    const voiceNotes = JSON.parse(localStorage.getItem('voiceNotes') || '[]');
+
+                    voiceNotes.push({
+                        id: Date.now(),
+                        data: audioData,
+                        date: new Date().toISOString()
+                    });
+
+                    localStorage.setItem('voiceNotes', JSON.stringify(voiceNotes));
+                    displayVoiceNotes();
+                };
+
+                reader.readAsDataURL(blob);
+            }
+
+            // Display voice notes
+            function displayVoiceNotes() {
+                const voiceNotesList = document.getElementById('voiceNotesList');
+                const voiceNotes = JSON.parse(localStorage.getItem('voiceNotes') || '[]');
+
+                voiceNotesList.innerHTML = '';
+
+                voiceNotes.forEach(note => {
+                    const noteElement = document.createElement('div');
+                    noteElement.className = 'voice-note';
+
+                    const date = new Date(note.date).toLocaleString();
+
+                    noteElement.innerHTML = `
+                        <div class="voice-note-info">
+                            <div>Voice Note</div>
+                            <div class="voice-note-date">${date}</div>
+                        </div>
+                        <audio class="audio-player" src="${note.data}" controls></audio>
+                        <button onclick="deleteVoiceNote(${note.id})" class="delete-voice-btn">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    `;
+
+                    voiceNotesList.appendChild(noteElement);
+                });
+            }
+
+            // Delete voice note
+            function deleteVoiceNote(id) {
+                if (confirm('Are you sure you want to delete this voice note?')) {
+                    const voiceNotes = JSON.parse(localStorage.getItem('voiceNotes') || '[]');
+                    const updatedNotes = voiceNotes.filter(note => note.id !== id);
+                    localStorage.setItem('voiceNotes', JSON.stringify(updatedNotes));
+                    displayVoiceNotes();
+                    showNotification('Voice note deleted', 'success');
+                }
+            }
+
+            // Update clear function to include voice notes
+            function clearNote() {
+                if (confirm('Are you sure you want to clear all content? This cannot be undone.')) {
+                    document.getElementById('notepad').innerHTML = '';
+                    imageContainer.innerHTML = '';
+                    localStorage.removeItem('notepadText');
+                    localStorage.removeItem('notepadImages');
+                    localStorage.removeItem('voiceNotes');
+                    displayVoiceNotes();
+                    showNotification('All content has been cleared', 'warning');
+                }
+            }
+
+            // Initialize voice recording when page loads
+            document.addEventListener('DOMContentLoaded', () => {
+                initializeRecording();
+                displayVoiceNotes();
+            });
         </script>
         <div id="notification-container"></div>
     </body>
