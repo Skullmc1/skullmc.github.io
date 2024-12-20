@@ -4,7 +4,34 @@ const TMDB_API_KEY = process.env.TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/";
 
-export async function POST(request: Request) {
+interface YearRange {
+  start?: string;
+  end?: string;
+}
+
+interface RequestFilters {
+  genre?: string;
+  [key: string]: unknown;
+}
+
+interface TMDBResponse {
+  results: Array<TMDBItem>;
+  total_pages: number;
+}
+
+interface TMDBItem {
+  id: number;
+  title?: string;
+  name?: string;
+  overview: string;
+  release_date?: string;
+  first_air_date?: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  vote_average: number;
+}
+
+export async function POST(request: Request): Promise<NextResponse> {
   try {
     const {
       page = 1,
@@ -12,9 +39,14 @@ export async function POST(request: Request) {
       yearRange,
       rating,
       ...filters
+    }: {
+      page?: number;
+      mediaType?: string;
+      yearRange?: YearRange;
+      rating?: number;
+      filters?: RequestFilters;
     } = await request.json();
 
-    // Handle year range parameters based on media type
     const yearParams =
       mediaType === "movie"
         ? {
@@ -35,7 +67,7 @@ export async function POST(request: Request) {
           };
 
     const queryParams = new URLSearchParams({
-      api_key: TMDB_API_KEY!,
+      api_key: TMDB_API_KEY ?? "",
       language: "en-US",
       include_adult: "false",
       page: page.toString(),
@@ -53,9 +85,9 @@ export async function POST(request: Request) {
       throw new Error("Failed to fetch from TMDB");
     }
 
-    const data = await response.json();
+    const data: TMDBResponse = await response.json();
 
-    const results = data.results.map((item: any) => ({
+    const results = data.results.map((item: TMDBItem) => ({
       id: item.id,
       title: mediaType === "movie" ? item.title : item.name,
       overview: item.overview,
