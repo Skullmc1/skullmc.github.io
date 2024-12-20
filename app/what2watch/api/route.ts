@@ -9,11 +9,6 @@ interface YearRange {
   end?: string;
 }
 
-interface RequestFilters {
-  genre?: string;
-  [key: string]: unknown;
-}
-
 interface TMDBResponse {
   results: Array<TMDBItem>;
   total_pages: number;
@@ -38,13 +33,13 @@ export async function POST(request: Request): Promise<NextResponse> {
       mediaType = "movie",
       yearRange,
       rating,
-      ...filters
+      genre,
     }: {
       page?: number;
       mediaType?: string;
       yearRange?: YearRange;
       rating?: number;
-      filters?: RequestFilters;
+      genre?: string;
     } = await request.json();
 
     const yearParams =
@@ -71,7 +66,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       language: "en-US",
       include_adult: "false",
       page: page.toString(),
-      ...(filters.genre && { with_genres: filters.genre }),
+      ...(genre && { with_genres: genre }),
       ...yearParams,
       ...(rating && { "vote_average.gte": rating.toString() }),
       sort_by: "popularity.desc",
