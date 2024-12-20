@@ -4,45 +4,20 @@ const TMDB_API_KEY = process.env.TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/";
 
-interface YearRange {
-  start?: string;
-  end?: string;
-}
-
-interface TMDBResponse {
-  results: Array<TMDBItem>;
-  total_pages: number;
-}
-
-interface TMDBItem {
-  id: number;
-  title?: string;
-  name?: string;
-  overview: string;
-  release_date?: string;
-  first_air_date?: string;
-  poster_path: string | null;
-  backdrop_path: string | null;
-  vote_average: number;
-}
-
 export async function POST(request: Request): Promise<NextResponse> {
+  if (!TMDB_API_KEY) {
+    console.error("TMDB API key is not defined");
+    return NextResponse.json(
+      { error: "API key not configured" },
+      { status: 500 },
+    );
+  }
+
   try {
     const body = await request.json();
-    console.log("Received request body:", body);
-    const {
-      page = 1,
-      mediaType = "movie",
-      yearRange,
-      rating,
-      genre,
-    }: {
-      page?: number;
-      mediaType?: string;
-      yearRange?: YearRange;
-      rating?: number;
-      genre?: string | number;
-    } = await request.json();
+    console.log("Request body:", body);
+
+    const { page = 1, mediaType = "movie", yearRange, rating, genre } = body;
 
     const yearParams =
       mediaType === "movie"
@@ -64,28 +39,33 @@ export async function POST(request: Request): Promise<NextResponse> {
           };
 
     const queryParams = new URLSearchParams({
-      api_key: TMDB_API_KEY ?? "",
+      api_key: TMDB_API_KEY,
       language: "en-US",
       include_adult: "false",
       page: page.toString(),
-      ...(genre && { with_genres: genre.toString() }), // Ensure genre is converted to string
+      ...(genre && { with_genres: genre.toString() }),
       ...yearParams,
       ...(rating && { "vote_average.gte": rating.toString() }),
       sort_by: "popularity.desc",
     });
+
     const url = `${BASE_URL}/discover/${mediaType}?${queryParams.toString()}`;
-    console.log("Fetching URL:", url); // Add this line
+    console.log("Fetching URL:", url);
 
     const response = await fetch(url);
 
     if (!response.ok) {
-      console.error("TMDB API error:", await response.text()); // Add this line
-      throw new Error("Failed to fetch from TMDB");
+      const errorText = await response.text();
+      console.error("TMDB API error:", errorText);
+      return NextResponse.json(
+        { error: "Failed to fetch from TMDB" },
+        { status: response.status },
+      );
     }
 
-    const data: TMDBResponse = await response.json();
+    const data = await response.json();
 
-    const results = data.results.map((item: TMDBItem) => ({
+    const results = data.results.map((item: any) => ({
       id: item.id,
       title: mediaType === "movie" ? item.title : item.name,
       overview: item.overview,
@@ -107,9 +87,9 @@ export async function POST(request: Request): Promise<NextResponse> {
       currentPage: page,
     });
   } catch (error) {
-    console.error("Detailed error:", error); // Add this line
+    console.error("Error processing request:", error);
     return NextResponse.json(
-      { error: "Failed to fetch content" },
+      { error: "Failed to process request" },
       { status: 500 },
     );
   }
