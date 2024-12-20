@@ -28,6 +28,8 @@ interface TMDBItem {
 
 export async function POST(request: Request): Promise<NextResponse> {
   try {
+    const body = await request.json();
+    console.log("Received request body:", body);
     const {
       page = 1,
       mediaType = "movie",
@@ -71,11 +73,13 @@ export async function POST(request: Request): Promise<NextResponse> {
       ...(rating && { "vote_average.gte": rating.toString() }),
       sort_by: "popularity.desc",
     });
-    const response = await fetch(
-      `${BASE_URL}/discover/${mediaType}?${queryParams.toString()}`,
-    );
+    const url = `${BASE_URL}/discover/${mediaType}?${queryParams.toString()}`;
+    console.log("Fetching URL:", url); // Add this line
+
+    const response = await fetch(url);
 
     if (!response.ok) {
+      console.error("TMDB API error:", await response.text()); // Add this line
       throw new Error("Failed to fetch from TMDB");
     }
 
@@ -103,7 +107,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       currentPage: page,
     });
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Detailed error:", error); // Add this line
     return NextResponse.json(
       { error: "Failed to fetch content" },
       { status: 500 },

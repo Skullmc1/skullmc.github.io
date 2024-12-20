@@ -12,17 +12,20 @@ export async function GET(request: Request): Promise<NextResponse> {
     const { searchParams } = new URL(request.url);
     const mediaType = searchParams.get("mediaType") ?? "movie";
 
-    const response = await fetch(
-      `${BASE_URL}/genre/${mediaType}/list?api_key=${TMDB_API_KEY}&language=en-US`,
-    );
+    const url = `${BASE_URL}/genre/${mediaType}/list?api_key=${TMDB_API_KEY}&language=en-US`;
+    console.log("Fetching genres URL:", url); // Add this line
+
+    const response = await fetch(url);
 
     if (!response.ok) {
+      console.error("TMDB API error:", await response.text()); // Add this line
       throw new Error("Failed to fetch genres");
     }
 
     const data: GenreResponse = await response.json();
     return NextResponse.json(data);
-  } catch {
+  } catch (error) {
+    console.error("Detailed genres error:", error); // Add this line
     return NextResponse.json(
       { error: "Failed to fetch genres" },
       { status: 500 },

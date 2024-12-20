@@ -22,7 +22,8 @@ export default function What2Watch() {
     setCurrentFilters(filters);
 
     try {
-      const response = await fetch("/what2watch/api", {
+      // Change this line
+      const response = await fetch("/api/what2watch", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,6 +56,7 @@ export default function What2Watch() {
     setLoading(true);
 
     try {
+      // Change this line
       const response = await fetch("/api/what2watch", {
         method: "POST",
         headers: {
