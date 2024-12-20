@@ -29,7 +29,7 @@ export default function FilterSection({ onSearch }: FilterSectionProps) {
     const fetchGenres = async () => {
       try {
         const response = await fetch(
-          `/what2watch/api/genres?mediaType=${filters.mediaType}`,
+          `/api/what2watch/genres?mediaType=${filters.mediaType}`, // Updated path
         );
         if (response.ok) {
           const data = await response.json();
