@@ -39,7 +39,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       mediaType?: string;
       yearRange?: YearRange;
       rating?: number;
-      genre?: string;
+      genre?: string | number;
     } = await request.json();
 
     const yearParams =
@@ -66,12 +66,11 @@ export async function POST(request: Request): Promise<NextResponse> {
       language: "en-US",
       include_adult: "false",
       page: page.toString(),
-      ...(genre && { with_genres: genre }),
+      ...(genre && { with_genres: genre.toString() }), // Ensure genre is converted to string
       ...yearParams,
       ...(rating && { "vote_average.gte": rating.toString() }),
       sort_by: "popularity.desc",
     });
-
     const response = await fetch(
       `${BASE_URL}/discover/${mediaType}?${queryParams.toString()}`,
     );

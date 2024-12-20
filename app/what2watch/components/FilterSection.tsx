@@ -118,7 +118,7 @@ export default function FilterSection({ onSearch }: FilterSectionProps) {
           >
             <option value="">All Genres</option>
             {genres.map((genre) => (
-              <option key={genre.id} value={genre.id}>
+              <option key={genre.id} value={genre.id.toString()}>
                 {genre.name}
               </option>
             ))}

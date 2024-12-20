@@ -10,7 +10,7 @@ export interface MovieResult {
 }
 
 export interface FilterOptions {
-  genre?: string;
+  genre?: string | number;
   yearRange: {
     start?: number;
     end?: number;
