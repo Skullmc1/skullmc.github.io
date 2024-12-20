@@ -1,9 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import ClientChatWrapper from "./components/ClientChatWrapper";
+import { Client } from "appwrite";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+const client = new Client();
+client.setProject("w2w");
 export default function Home() {
   const newProjects = [
+    {
+      title: "What2Watch",
+      description: "A Movie and TV Show Recommendation Website",
+      link: "/projects/what2watch/index.html",
+      tech: ["HTML", "CSS", "JavaScript"],
+    },
     {
       title: "Branching Realms",
       description: "An Auto Generating Text Adventure Game",
