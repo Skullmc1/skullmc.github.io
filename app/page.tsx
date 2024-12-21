@@ -1,12 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
-import ClientChatWrapper from "./components/ClientChatWrapper";
 import { Client } from "appwrite";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 const client = new Client();
 client.setProject("w2w");
 export default function Home() {
   const newProjects = [
+    {
+      title: "Game Library",
+      description: "A library of games with a filter and search feature",
+      link: "/games",
+      tech: ["React", "TypeScript"],
+    },
+    {
+      title: "Snake & TicTacToe",
+      description: "Two classic games in one",
+      link: "/tinygames",
+      tech: ["HTML", "CSS", "JavaScript"],
+    },
     {
       title: "Branching Realms",
       description: "An Auto Generating Text Adventure Game",
@@ -71,12 +82,6 @@ export default function Home() {
       description: "Fan website for the popular horror survival game",
       link: "/projects/lc/index.html",
       tech: ["HTML", "CSS", "JavaScript"],
-    },
-    {
-      title: "AI Chatbot",
-      description: "Interactive AI chatbot with natural language processing",
-      link: "/projects/ai",
-      tech: ["Next.js", "HTML", "CSS", "JavaScript"],
     },
     {
       title: "Futuristic School",
@@ -191,11 +196,6 @@ export default function Home() {
               </div>
             </Link>
           ))}
-        </div>
-
-        {/* Wrap ChatSection in a div to ensure proper mounting */}
-        <div>
-          <ClientChatWrapper />
         </div>
 
         {/* Updated Social Links with your actual URLs */}
