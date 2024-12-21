@@ -7,6 +7,12 @@ client.setProject("w2w");
 export default function Home() {
   const newProjects = [
     {
+      title: "Message In a Bottle",
+      description: "Send a message. Can be seen by anyone.",
+      link: "/miab",
+      tech: ["React", "Supabase"],
+    },
+    {
       title: "Game Library",
       description: "A library of games with a filter and search feature",
       link: "/games",
