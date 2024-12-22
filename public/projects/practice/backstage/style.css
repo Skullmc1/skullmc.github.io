@@ -1,0 +1,188 @@
+@font-face {
+    font-family: "GT Pressura Mono";
+    src:
+        url("fonts/GT-Pressura-Mono-Regular.woff2") format("woff2"),
+        url("fonts/GT-Pressura-Mono-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.5s ease;
+    background-color: #ff651a;
+}
+
+header {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 100;
+}
+
+.logo {
+    width: 260px;
+    height: auto;
+}
+
+.magazine-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.magazine-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    position: relative;
+}
+
+.magazine-section img {
+    max-width: 420px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.magazine-info {
+    text-align: center;
+    color: #000;
+    font-family: "GT Pressura Mono", monospace;
+    letter-spacing: -0.02em;
+}
+
+.magazine-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.buy-info {
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.issue-navigation {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.issue-navigation ul {
+    list-style: none;
+    text-align: right;
+}
+
+.issue-navigation a {
+    font-family: "GT Pressura Mono", monospace;
+    color: #000;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 16px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    letter-spacing: -0.02em;
+}
+
+.issue-navigation a:hover,
+.issue-navigation a.active {
+    opacity: 1;
+}
+
+footer {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    max-width: 260px;
+    z-index: 100;
+}
+
+.footer-content p {
+    margin-bottom: 15px;
+    font-size: 13px;
+    line-height: 1.4;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.footer-content a {
+    color: #000;
+    text-decoration: none;
+    font-family: "GT Pressura Mono", monospace;
+    letter-spacing: -0.02em;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+/* Magazine colors */
+.magazine-section[data-color="#ff651a"] {
+    background-color: #ff651a;
+}
+.magazine-section[data-color="#00c1b5"] {
+    background-color: #00c1b5;
+}
+.magazine-section[data-color="#ffbe00"] {
+    background-color: #ffbe00;
+}
+.magazine-section[data-color="#1d3fbb"] {
+    background-color: #1d3fbb;
+}
+.magazine-section[data-color="#e30512"] {
+    background-color: #e30512;
+}
+.magazine-section[data-color="#ff608c"] {
+    background-color: #ff608c;
+}
+.magazine-section[data-color="#fff"] {
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    header {
+        top: 20px;
+        left: 20px;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    .magazine-section img {
+        max-width: 300px;
+    }
+
+    .issue-navigation {
+        right: 20px;
+    }
+
+    footer {
+        bottom: 20px;
+        left: 20px;
+        max-width: 200px;
+    }
+
+    .magazine-info p {
+        font-size: 14px;
+    }
+}
+.magazine-info,
+.issue-navigation a,
+.footer-content a {
+    font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono",
+        "Droid Sans Mono", "Source Code Pro", monospace;
+}
