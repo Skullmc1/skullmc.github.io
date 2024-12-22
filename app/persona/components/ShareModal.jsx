@@ -3,12 +3,7 @@ import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { sharePersona } from "../lib/personaUtils";
 
-export default function ShareModal({
-  isOpen,
-  onClose,
-  personaConfig,
-  personaId,
-}) {
+export default function ShareModal({ isOpen, onClose, personaId }) {
   const [shareUrl, setShareUrl] = useState("");
   const [loading, setLoading] = useState(false);
 
