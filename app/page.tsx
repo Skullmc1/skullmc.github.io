@@ -18,11 +18,14 @@ export default function Home() {
       link: "/games",
       tech: ["React", "TypeScript"],
     },
+  ];
+
+  const projects = [
     {
       title: "Snake & TicTacToe",
       description: "Two classic games in one",
       link: "/tinygames",
-      tech: ["HTML", "CSS", "JavaScript"],
+      tech: ["Nextjs", "TypeScript"],
     },
     {
       title: "Branching Realms",
@@ -42,9 +45,12 @@ export default function Home() {
       link: "/projects/portofolio/index.html",
       tech: ["HTML", "CSS", "JavaScript"],
     },
-  ];
-
-  const projects = [
+    {
+      title: "PersonaForge",
+      description: "A website that generates random personas",
+      link: "/persona",
+      tech: ["React", "TypeScript", "SupaBase"],
+    },
     {
       title: "Backrooms Experience",
       description: "A website that simulates the backrooms experience",
