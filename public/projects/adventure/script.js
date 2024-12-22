@@ -1,4 +1,4 @@
-const GEMINI_API_KEY = process.env.GOOGLE_GEMINI_API_KEY;
+const GEMINI_API_KEY = "AIzaSyAkJ7L6cg-5s8uPlAW8yf-luFvnac9NShk";
 const API_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
 
@@ -72,30 +72,40 @@ async function makeChoice(choice) {
 }
 
 async function generateStorySegment(prompt) {
-  const response = await fetch(`${API_URL}?key=${GEMINI_API_KEY}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      contents: [
-        {
-          parts: [
-            {
-              text: prompt,
-            },
-          ],
-        },
-      ],
-    }),
-  });
+  try {
+    const response = await fetch(`${API_URL}?key=${GEMINI_API_KEY}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [
+              {
+                text: prompt,
+              },
+            ],
+          },
+        ],
+      }),
+    });
 
-  if (!response.ok) {
-    throw new Error("Failed to generate story segment");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (!data.candidates || !data.candidates[0]?.content?.parts?.[0]?.text) {
+      throw new Error("Invalid response format from API");
+    }
+
+    return data.candidates[0].content.parts[0].text;
+  } catch (error) {
+    console.error("Error generating story:", error);
+    return "An error occurred while generating the story. Please try again.";
   }
-
-  const data = await response.json();
-  return data.candidates[0].content.parts[0].text;
 }
 
 function displayStoryAndChoices(response) {
@@ -132,11 +142,42 @@ function displayStoryAndChoices(response) {
   });
 }
 document.addEventListener("DOMContentLoaded", function () {
+  // Preloader initialization
+  const preloader = document.getElementById("preloader");
+  const progressBar = document.querySelector(".progress-bar");
+
+  // Simulate loading progress
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += 10;
+    progressBar.style.width = `${progress}%`;
+
+    if (progress >= 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        preloader.classList.add("fade-out");
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 500);
+      }, 500);
+    }
+  }, 200);
+
+  // Music initialization
   const backgroundMusic = document.getElementById("backgroundMusic");
   const toggleMusicBtn = document.getElementById("toggleMusic");
+  const volumeSlider = document.getElementById("volumeSlider");
+  const volumeTrack = document.querySelector(".volume-track");
   let isMusicPlaying = false;
-
-  // Function to start playing music
+  // Initialize volume controls
+  updateVolumeTrack();
+  backgroundMusic.volume = 0.3;
+  // Add event listeners
+  toggleMusicBtn.addEventListener("click", toggleMusic);
+  volumeSlider.addEventListener("input", function () {
+    backgroundMusic.volume = this.value / 100;
+    updateVolumeTrack();
+  });
   function playBackgroundMusic() {
     backgroundMusic
       .play()
@@ -148,8 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Playback failed:", error);
       });
   }
-
-  // Function to handle music toggle
   function toggleMusic() {
     if (isMusicPlaying) {
       backgroundMusic.pause();
@@ -159,11 +198,6 @@ document.addEventListener("DOMContentLoaded", function () {
       playBackgroundMusic();
     }
   }
-
-  // Add click event listener to music button
-  toggleMusicBtn.addEventListener("click", toggleMusic);
-
-  // Add event listener for when user starts the adventure
   document
     .getElementById("startAdventure")
     .addEventListener("click", function () {
@@ -171,9 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
         playBackgroundMusic();
       }
     });
-
-  // Set initial volume
-  backgroundMusic.volume = 0.3; // Adjust this value between 0.0 and 1.0
 });
 const volumeSlider = document.getElementById("volumeSlider");
 const volumeTrack = document.querySelector(".volume-track");
