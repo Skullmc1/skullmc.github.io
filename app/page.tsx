@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Client } from "appwrite";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import "./background.css";
+
 const client = new Client();
 client.setProject("w2w");
 export default function Home() {
