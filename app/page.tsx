@@ -7,6 +7,12 @@ client.setProject("w2w");
 export default function Home() {
   const newProjects = [
     {
+      title: "SolarKingdom v3",
+      description: "Website made for Solar company.",
+      link: "/solarkingdom",
+      tech: ["Typescript", "Javascript"],
+    },
+    {
       title: "Message In a Bottle",
       description: "Send a message. Can be seen by anyone.",
       link: "/miab",
