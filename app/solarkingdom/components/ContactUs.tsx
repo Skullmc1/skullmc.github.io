@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/ContactUs.module.css";
 import Link from "next/link";
-import Image from "next/image";
 
 interface FormData {
   name: string;
@@ -72,11 +71,6 @@ const ContactUs = () => {
         phone: "",
         subject: "",
         message: "",
-      });
-    } catch (error) {
-      setSubmitStatus({
-        type: "error",
-        message: "Something went wrong. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
