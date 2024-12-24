@@ -1,0 +1,295 @@
+.contact {
+    position: relative;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    min-height: 100vh;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out;
+}
+
+.contact.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.glowOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba(76, 175, 80, 0.1),
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.contactInfo {
+    color: white;
+}
+
+.title {
+    font-size: 3rem;
+    color: #4caf50;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #ffffff;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+}
+
+.infoCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.infoCard {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.infoCard:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.iconWrapper {
+    width: 60px;
+    height: 60px;
+    background: #4caf50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.icon {
+    font-size: 1.5rem;
+}
+
+.infoCard h3 {
+    color: #4caf50;
+    margin-bottom: 1rem;
+}
+
+.infoCard p {
+    color: #ffffff;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.infoCard a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.infoCard a:hover {
+    color: #4caf50;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.socialLink {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #4caf50;
+    border-radius: 25px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+    background: #4caf50;
+    color: white;
+}
+
+.formContainer {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.formWrapper {
+    padding: 3rem;
+}
+
+.formWrapper h3 {
+    color: #4caf50;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.inputGroup {
+    margin-bottom: 1.5rem;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+    outline: none;
+    border-color: #4caf50;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.submitButton {
+    width: 100%;
+    padding: 1rem;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.submitButton:disabled {
+    background: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.alert {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.success {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+}
+
+.error {
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff4444;
+}
+
+@media (max-width: 1024px) {
+    .content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: 4rem 1rem;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact,
+    .infoCard,
+    .submitButton {
+        transition: none;
+    }
+}
+.backButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: #4caf50;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.backButton:hover {
+    background: #45a049;
+    transform: translateX(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.backIcon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.backButton:hover .backIcon {
+    transform: translateX(-3px);
+}
+
+/* Add media query for mobile */
+@media (max-width: 768px) {
+    .backButton {
+        top: 10px;
+        left: 10px;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Add reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .backButton,
+    .backIcon {
+        transition: none;
+    }
+}

@@ -1,0 +1,260 @@
+.gallery {
+    position: relative;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    min-height: 100vh;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out;
+}
+
+.gallery.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.glowOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba(76, 175, 80, 0.1),
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.content {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    font-size: 3rem;
+    color: #4caf50;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.filterButton {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #4caf50;
+    background: transparent;
+    color: #ffffff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.filterButton:hover {
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.filterButton.active {
+    background: #4caf50;
+    color: white;
+}
+
+.projectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.projectCard {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.projectCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.projectImage {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.projectInfo {
+    padding: 1.5rem;
+}
+
+.projectInfo h3 {
+    color: #4caf50;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.projectInfo p {
+    color: #ffffff;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.powerBadge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+    background: #1a1a1a;
+    border-radius: 15px;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+}
+
+.modalImage {
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+.modalInfo {
+    padding: 2rem;
+}
+
+.modalInfo h3 {
+    color: #4caf50;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.modalInfo p {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.modalDetails {
+    display: flex;
+    gap: 2rem;
+}
+
+.modalDetails span {
+    color: #4caf50;
+}
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: rotate(90deg);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        padding: 4rem 1rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .filters {
+        flex-wrap: wrap;
+    }
+
+    .modalContent {
+        margin: 1rem;
+    }
+
+    .modalImage {
+        height: 300px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gallery,
+    .projectCard,
+    .modal,
+    .modalContent,
+    .closeButton {
+        transition: none;
+        animation: none;
+    }
+}
