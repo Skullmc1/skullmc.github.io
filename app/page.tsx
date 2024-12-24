@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Client } from "appwrite";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import "./background.css";
 import "./snow.css";
 
@@ -212,6 +213,7 @@ export default function Home() {
           </div>
         </div>
         <SpeedInsights />
+        <Analytics />
         {/* Existing Projects Section */}
         <h2 className="text-2xl font-bold mb-6 text-center">All Projects</h2>
         {/* Projects Grid */}
