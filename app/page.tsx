@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Client } from "appwrite";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./background.css";
+import "./snow.css";
 
 const client = new Client();
 client.setProject("w2w");
@@ -116,9 +117,35 @@ export default function Home() {
       tech: ["HTML", "CSS", "JavaScript"],
     },
   ];
+  function createSnowflakes() {
+    const snowflakeChars = ["❅", "❆", "❄", "✻", "✺", "❋", "❊", "✧"];
 
+    return Array.from({ length: 50 }).map((_, index) => {
+      const animationDuration = 5 + Math.random() * 10;
+      const startDelay = Math.random() * 5;
+      const startPositionX = Math.random() * 100;
+      const snowflake =
+        snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+      const scale = 0.5 + Math.random() * 1; // Random size between 0.5 and 1.5
+
+      return (
+        <div
+          key={index}
+          className="snowflake"
+          style={{
+            left: `${startPositionX}vw`,
+            animation: `snowfall ${animationDuration}s linear ${startDelay}s infinite`,
+            transform: `scale(${scale})`,
+          }}
+        >
+          {snowflake}
+        </div>
+      );
+    });
+  }
   return (
     <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20 relative overflow-hidden">
+      <div className="snow-container">{createSnowflakes()}</div>
       {/* Background Logo with Blur */}
       <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-30">
         <div className="relative w-full h-full">
