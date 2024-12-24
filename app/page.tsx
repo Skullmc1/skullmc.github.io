@@ -10,6 +10,12 @@ client.setProject("w2w");
 export default function Home() {
   const newProjects = [
     {
+      title: "Background effects Testing",
+      description: "Testing ground for various backgrounds.",
+      link: "/bgeffects",
+      tech: ["Various"],
+    },
+    {
       title: "SolarKingdom v3",
       description: "Website made for Solar company.",
       link: "/solarkingdom",
