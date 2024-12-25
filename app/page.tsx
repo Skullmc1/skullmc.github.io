@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Client } from "appwrite";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import CursorEffect from "./components/CursorEffect";
 import "./background.css";
 import "./snow.css";
 
@@ -130,6 +131,8 @@ export default function Home() {
       tech: ["HTML", "CSS", "JavaScript"],
     },
   ];
+  {
+    /*
   function createSnowflakes() {
     const snowflakeChars = ["❅", "❆", "❄", "✻", "✺", "❋", "❊", "✧"];
 
@@ -156,10 +159,14 @@ export default function Home() {
       );
     });
   }
+  */
+  }
   return (
     <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20 relative overflow-hidden">
-      <div className="snow-container">{createSnowflakes()}</div>
+      <CursorEffect />
+      {/* <div className="snow-container">{createSnowflakes()}</div> */}
       {/* Background Logo with Blur */}
+
       <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-30">
         <div className="relative w-full h-full">
           <Image
