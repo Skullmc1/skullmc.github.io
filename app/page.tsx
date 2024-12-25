@@ -11,16 +11,16 @@ client.setProject("w2w");
 export default function Home() {
   const newProjects = [
     {
+      title: "ColorBoard",
+      description: "A Grid that colors when hovering",
+      link: "/colorboard",
+      tech: ["JavaScript"],
+    },
+    {
       title: "Background effects Testing",
       description: "Testing ground for various backgrounds.",
       link: "/bgeffects",
       tech: ["Various"],
-    },
-    {
-      title: "SolarKingdom v3",
-      description: "Website made for Solar company.",
-      link: "/solarkingdom",
-      tech: ["Typescript", "Javascript"],
     },
     {
       title: "Message In a Bottle",
@@ -28,15 +28,21 @@ export default function Home() {
       link: "/miab",
       tech: ["React", "Supabase"],
     },
+  ];
+
+  const projects = [
     {
       title: "Game Library",
       description: "A library of games with a filter and search feature",
       link: "/games",
       tech: ["React", "TypeScript"],
     },
-  ];
-
-  const projects = [
+    {
+      title: "SolarKingdom v3",
+      description: "Website made for Solar company.",
+      link: "/solarkingdom",
+      tech: ["Typescript", "Javascript"],
+    },
     {
       title: "Snake & TicTacToe",
       description: "Two classic games in one",
