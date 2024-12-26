@@ -12,6 +12,12 @@ client.setProject("w2w");
 export default function Home() {
   const newProjects = [
     {
+      title: "Shooter Game",
+      description: "A simple shooter game.",
+      link: "/shooter",
+      tech: ["Typescript", "som'more"],
+    },
+    {
       title: "ColorBoard",
       description: "A Grid that colors when hovering",
       link: "/colorboard",

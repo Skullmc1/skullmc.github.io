@@ -195,3 +195,27 @@ body {
         transform: translate(-10px, 10px) rotate(1deg);
     }
 }
+@layer utilities {
+    .filter-green {
+        filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.6));
+    }
+    .filter-yellow {
+        filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.6));
+    }
+    .filter-blue {
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
+    }
+    .filter-red {
+        filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
+    }
+    .animate-spin-slow {
+        animation: spin 8s linear infinite;
+    }
+}
+@layer utilities {
+    .filter-cyan {
+        filter: brightness(0) saturate(100%) invert(67%) sepia(72%)
+            saturate(641%) hue-rotate(157deg) brightness(101%) contrast(97%)
+            drop-shadow(0 0 8px rgba(6, 182, 212, 0.6));
+    }
+}
