@@ -17,6 +17,9 @@ interface LeaderboardEntry {
   time: number;
   created_at: string;
 }
+const truncateText = (text: string, maxLength: number = 30) => {
+  return text.length > maxLength ? `${text.substring(0, maxLength)}...` : text;
+};
 
 export default function ColorBoard() {
   const gridSize = 10;
@@ -161,7 +164,9 @@ export default function ColorBoard() {
             {leaderboard.map((entry, index) => (
               <div key={entry.id} className={styles.leaderboardEntry}>
                 <span>{index + 1}.</span>
-                <span>{entry.player_name}</span>
+                <span title={entry.player_name}>
+                  {truncateText(entry.player_name)}
+                </span>
                 <span>{formatTime(entry.time)}</span>
               </div>
             ))}
