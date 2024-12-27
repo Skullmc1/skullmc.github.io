@@ -15,6 +15,12 @@ client.setProject("w2w");
 export default function Home() {
   const newProjects = [
     {
+      title: "Squid Game Fan Website",
+      description: "Fan-site for Squid game show.",
+      link: "/shooter",
+      tech: ["React", "Next.js"],
+    },
+    {
       title: "Shooter Game",
       description: "A simple shooter game.",
       link: "/shooter",
@@ -26,6 +32,9 @@ export default function Home() {
       link: "/colorboard",
       tech: ["JavaScript"],
     },
+  ];
+
+  const projects = [
     {
       title: "Background effects Testing",
       description: "Testing ground for various backgrounds.",
@@ -38,9 +47,6 @@ export default function Home() {
       link: "/miab",
       tech: ["React", "Supabase"],
     },
-  ];
-
-  const projects = [
     {
       title: "Game Library",
       description: "A library of games with a filter and search feature",

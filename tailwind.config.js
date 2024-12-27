@@ -8,6 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        "squid-pink": "#FF0F7B",
+        "squid-teal": "#00FFB3",
         "cyber-purple": {
           100: "#f0e6ff",
           200: "#dcd0ff",
