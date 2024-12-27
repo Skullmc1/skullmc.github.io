@@ -17,7 +17,7 @@ export default function Home() {
     {
       title: "Squid Game Fan Website",
       description: "Fan-site for Squid game show.",
-      link: "/suidgame",
+      link: "/squidgame",
       tech: ["React", "Next.js"],
     },
     {
