@@ -21,6 +21,12 @@ export default function Home() {
       tech: ["React", "Next.js"],
     },
     {
+      title: "A Cube",
+      description: "A cube that reacts to sound.",
+      link: "/soundreactions",
+      tech: ["React", "Next.js"],
+    },
+    {
       title: "Squid Game Fan Website",
       description: "Fan-site for Squid game show.",
       link: "/squidgame",
