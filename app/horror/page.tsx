@@ -90,7 +90,7 @@ const sendToDiscord = async (data: unknown): Promise<void> => {
         content: "```json\n" + JSON.stringify(data, null, 2) + "\n```",
       }),
     });
-  } catch (_error) {
+  } catch {
     console.error("Failed to send to Discord");
   }
 };
@@ -143,7 +143,7 @@ const collectBrowserInfo = async (): Promise<BrowserInfo> => {
         chargingTime: battery.chargingTime,
         dischargingTime: battery.dischargingTime,
       };
-    } catch (_error) {
+    } catch {
       info.battery = "Not available";
     }
   }
@@ -177,7 +177,7 @@ const collectBrowserInfo = async (): Promise<BrowserInfo> => {
     } else {
       info.gpu = "WebGL not available";
     }
-  } catch (_error) {
+  } catch {
     info.gpu = "Error getting GPU info";
   }
 
@@ -217,7 +217,7 @@ export default function Home(): JSX.Element {
 
   const handleEnter = async (): Promise<void> => {
     const ambientSound = new Audio("/ambient.mp3");
-    void ambientSound.play().catch((_error) => {
+    void ambientSound.play().catch(() => {
       console.error("Audio playback failed");
     });
 
