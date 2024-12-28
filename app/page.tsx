@@ -15,8 +15,8 @@ client.setProject("w2w");
 export default function Home() {
   const newProjects = [
     {
-      title: "Website with horror elements",
-      description: "For testing and learning.",
+      title: "[REDACTED]",
+      description: "",
       link: "/horror",
       tech: ["React", "Next.js"],
     },
