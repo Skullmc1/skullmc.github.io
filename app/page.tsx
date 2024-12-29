@@ -10,7 +10,8 @@ import "./snow.css";
 import "./page.module.css";
 import ContextMenu from "./components/ContextMenu";
 import { sendToDiscordWebhook } from "./components/SendToWebhook";
-
+import OldMainPages from "@/components/OldMainPages";
+import EmojiCursor from "@/components/EmojiCursor";
 const handleClick = async () => {
   const success = await sendToDiscordWebhook();
   if (success) {
@@ -203,6 +204,7 @@ export default function Home() {
       onClick={handleClick}
       className="min-h-screen bg-black text-white overflow-x-hidden"
     >
+      <EmojiCursor />
       <CursorEffect />
       <ContextMenu />
 
@@ -420,6 +422,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <OldMainPages />
       {/* Footer Section */}
       <motion.footer
         initial={{ opacity: 0 }}
