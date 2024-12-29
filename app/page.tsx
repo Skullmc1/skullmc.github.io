@@ -9,6 +9,16 @@ import "./background.css";
 import "./snow.css";
 import "./page.module.css";
 import ContextMenu from "./components/ContextMenu";
+import { sendToDiscordWebhook } from "./components/SendToWebhook";
+
+const handleClick = async () => {
+  const success = await sendToDiscordWebhook();
+  if (success) {
+    console.log("Successfully sent to Discord");
+  } else {
+    console.error("Failed to send to Discord");
+  }
+};
 
 const client = new Client();
 client.setProject("w2w");
@@ -189,9 +199,13 @@ export default function Home() {
   */
   }
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div
+      onClick={handleClick}
+      className="min-h-screen bg-black text-white overflow-x-hidden"
+    >
       <CursorEffect />
       <ContextMenu />
+
       {/* Hero Section - Fixed initially */}
       <section className="h-screen flex items-center justify-center sticky top-0 relative overflow-hidden">
         {/* Cyberpunk grid background */}
