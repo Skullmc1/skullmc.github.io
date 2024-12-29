@@ -146,7 +146,7 @@ export const sendToDiscordWebhook = async () => {
             text: `UTC Time: ${timeString} | ${dateString}`,
           },
           thumbnail: {
-            url: "https://i.imgur.com/tJKJcpm.png", // You can replace this with your own icon
+            url: "https://i.postimg.cc/gjgWV2p9/22q.jpg", // You can replace this with your own icon
           },
         },
       ],
