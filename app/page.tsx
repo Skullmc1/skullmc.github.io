@@ -26,6 +26,12 @@ client.setProject("w2w");
 export default function Home() {
   const newProjects = [
     {
+      title: "Tides of Fate",
+      description: "Smol Game in development.",
+      link: "/branched",
+      tech: ["React", "Next.js"],
+    },
+    {
       title: "[REDACTED]",
       description: "",
       link: "/horror",
