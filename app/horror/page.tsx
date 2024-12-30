@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import styled, { keyframes } from "styled-components";
 import { useRouter } from "next/navigation";
+import ModernCursor from "@/components/ModernCursor";
 import type {
   ConnectionInfo,
   MemoryInfo,
@@ -243,6 +244,7 @@ export default function Home(): JSX.Element {
   return (
     <main className="min-h-screen bg-black text-white font-mono flex justify-center items-center overflow-hidden">
       <Noise />
+      <ModernCursor />
       <CursorFollower
         style={{
           left: `${cursorPos.x}px`,

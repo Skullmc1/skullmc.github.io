@@ -11,7 +11,7 @@ import "./page.module.css";
 import ContextMenu from "./components/ContextMenu";
 import { sendToDiscordWebhook } from "./components/SendToWebhook";
 import OldMainPages from "@/components/OldMainPages";
-import EmojiCursor from "@/components/EmojiCursor";
+import ModernCursor from "@/components/ModernCursor";
 const handleClick = async () => {
   const success = await sendToDiscordWebhook();
   if (success) {
@@ -204,7 +204,7 @@ export default function Home() {
       onClick={handleClick}
       className="min-h-screen bg-black text-white overflow-x-hidden"
     >
-      <EmojiCursor />
+      <ModernCursor />
       <CursorEffect />
       <ContextMenu />
 
