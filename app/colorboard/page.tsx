@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { createClient } from "@supabase/supabase-js";
 import styles from "./ColorBoard.module.css";
-
+import ModernCursor from "@/components/ModernCursor";
 // Initialize Supabase client
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -120,6 +120,7 @@ export default function ColorBoard() {
 
   return (
     <div className={styles.pageContainer}>
+      <ModernCursor />
       <Link href="/" className={styles.homeButton}>
         ← Back to Home
       </Link>

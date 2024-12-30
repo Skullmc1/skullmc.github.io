@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from "react";
 import styles from "./miab.module.css";
 import Bubbles from "../miab/Bubbles";
 import Image from "next/image";
+import ModernCursor from "@/components/ModernCursor";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -99,6 +100,7 @@ export default function MessageInABottle() {
   return (
     <div className={styles.container}>
       <Bubbles />
+      <ModernCursor />
       <div className={styles.content}>
         <div className={styles.header}>
           <h1>Message in a Bottle</h1>

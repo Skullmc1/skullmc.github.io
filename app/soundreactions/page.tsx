@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
-
+import ModernCursor from "@/components/ModernCursor";
 const moveGrid = keyframes`
   0% {
     transform: perspective(500px) rotateX(45deg) translateY(0);
@@ -247,6 +247,7 @@ export default function SoundReactions() {
 
   return (
     <Container>
+      <ModernCursor />
       <BackgroundContainer $intensity={visualState.intensity}>
         <Grid $intensity={visualState.intensity} />
       </BackgroundContainer>
