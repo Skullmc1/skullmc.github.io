@@ -30,6 +30,12 @@ module.exports = {
           blue: "#00f3ff",
           purple: "#b026ff",
         },
+        game: {
+          dark: "#0C0C0C",
+          surface: "#481E14",
+          secondary: "#9B3922",
+          primary: "#F2613F",
+        },
       },
       fontFamily: {
         pixel: ['"Press Start 2P"', "cursive"],

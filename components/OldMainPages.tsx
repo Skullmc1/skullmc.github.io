@@ -28,6 +28,7 @@ const OldMainPages = () => {
           {[
             { title: "First", link: "/first" },
             { title: "Cartoon Lookin", link: "/cartoon" },
+            { title: "Terminal", link: "/game" },
           ].map((version, index) => (
             <motion.div
               key={index}

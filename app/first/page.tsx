@@ -5,7 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import CursorEffect from "../components/CursorEffect";
 import "../background.css";
-import "../snow.css";
+import "./first.css";
 
 const client = new Client();
 client.setProject("w2w");
