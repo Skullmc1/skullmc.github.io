@@ -30,7 +30,15 @@ body {
     color: #ffffff;
     overflow-x: hidden;
 }
-
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Arial", sans-serif;
+}
 /* For browsers that support it */
 @media (prefers-reduced-motion: no-preference) {
     html {
@@ -193,5 +201,15 @@ body {
     }
     75% {
         transform: translate(-10px, 10px) rotate(1deg);
+    }
+}
+/* globals.css */
+@layer base {
+    .text-neon-green {
+        color: #39ff14; /* Neon green */
+        text-shadow:
+            0 0 5px #39ff14,
+            0 0 10px #39ff14,
+            0 0 15px #39ff14;
     }
 }
